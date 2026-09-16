@@ -11,6 +11,10 @@
     width: 20px;
     height: 20px;
   }
+  &--lg {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 // Кнопки
@@ -132,6 +136,13 @@
     line-height: 24px;
     letter-spacing: 0.32px;
   }
+  &__hint {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.24px;
+    color: var(--color-caption);
+  }
+  &__hint--error { color: var(--color-error); }
 }
 
 .input-wrap {
@@ -183,6 +194,18 @@
 }
 .input-wrap__icon-left + .input { padding-left: 12px; }
 
+textarea.input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+// Пара полей в ряд
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 // Поиск в шапке
 .search .input::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -193,6 +216,68 @@
   flex: 1;
   min-width: 0;
   border-radius: var(--radius-sm);
+}
+
+// Селект / дропдаун
+.select {
+  position: relative;
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-caption);
+    border-radius: var(--radius-md);
+    text-align: left;
+    transition: border-color 0.15s;
+    &[aria-expanded="true"] {
+      border-color: var(--color-accent-pressed);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+.select__toggle[aria-expanded="true"] .icon { transform: rotate(180deg); }
+.select__placeholder { color: var(--color-text-disabled); }
+
+.select__menu {
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent-pressed);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+.select__toggle[aria-expanded="false"] + .select__menu { display: none; }
+
+.select__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  transition: background-color 0.12s;
+}
+.select__option.check {
+  padding: 4px 0 4px 12px;
+  gap: 8px;
+}
+.select__option:hover { background: var(--color-disabled); }
+.select__option.is-selected {
+  background: var(--color-accent-hover);
+  color: var(--color-accent-pressed);
 }
 
 // Чекбоксы и радио
@@ -235,7 +320,7 @@
 }
 .check input:checked + .check__box::after {
   opacity: 1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23253017' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 6.2 4.4 9 10.5 2.6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 6.2 4.4 9 10.5 2.6'/%3E%3C/svg%3E");
 }
 .check input:disabled + .check__box { border-color: var(--color-disabled); }
 .check input:disabled ~ .check__text { color: var(--color-text-disabled); }

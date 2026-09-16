@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Регистрация, шаг 2 — SkillSwap</title>
+	<link rel="icon" href="assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+</head>
+
+<body>
+	<div class="page">
+
+		<header class="header">
+			<div class="container auth-header">
+				<a class="logo" href="home.html">
+					<span class="logo__mark"><svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+						</svg></span>
+					SkillSwap
+				</a>
+				<div class="auth-header__step">
+					<p class="auth-header__title">Шаг 2 из 3</p>
+					<div class="steps">
+						<span class="steps__item is-done"></span>
+						<span class="steps__item is-done"></span>
+						<span class="steps__item"></span>
+					</div>
+				</div>
+				<a class="btn auth-header__close" href="home.html">
+					Закрыть
+					<svg class="icon" aria-hidden="true">
+						<use href="assets/svg/sprite.svg#i-cross"></use>
+					</svg>
+				</a>
+			</div>
+		</header>
+
+		<main class="page__main">
+			<div class="container">
+
+				<div class="auth">
+
+					<section class="auth__panel">
+						<form class="auth__form" novalidate>
+							<p style="text-align:center">
+								<button class="btn-icon" type="button" aria-label="Загрузить фото профиля" style="width:56px;height:56px">
+									<svg class="icon icon--lg" aria-hidden="true"><use href="assets/svg/sprite.svg#i-user-circle"></use></svg>
+								</button>
+							</p>
+
+							<div class="field">
+								<label class="field__label" for="name">Имя</label>
+								<div class="input-wrap">
+									<input class="input" id="name" type="text" placeholder="Введите ваше имя" autocomplete="given-name">
+								</div>
+							</div>
+
+							<div class="field-row">
+								<div class="field">
+									<label class="field__label" for="birthday">Дата рождения</label>
+									<div class="input-wrap">
+										<input class="input" id="birthday" type="text" placeholder="дд.мм.гггг" inputmode="numeric">
+										<span class="input-wrap__action" aria-hidden="true"><svg class="icon"><use href="assets/svg/sprite.svg#i-calendar"></use></svg></span>
+									</div>
+								</div>
+
+								<div class="field">
+									<span class="field__label" id="gender-label">Пол</span>
+									<div class="select">
+										<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="gender-label">
+											<span class="select__value select__placeholder">Не указан</span>
+											<svg class="icon" aria-hidden="true">
+												<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+											</svg>
+										</button>
+										<div class="select__menu">
+											<button class="select__option" type="button">Не указан</button>
+											<button class="select__option" type="button">Мужской</button>
+											<button class="select__option" type="button">Женский</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="field__label" id="city-label">Город</span>
+								<div class="select">
+									<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="city-label">
+										<span class="select__value select__placeholder">Не указан</span>
+										<svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+									<div class="select__menu">
+										<button class="select__option" type="button">Москва</button>
+										<button class="select__option" type="button">Санкт-Петербург</button>
+										<button class="select__option" type="button">Новосибирск</button>
+										<button class="select__option" type="button">Екатеринбург</button>
+										<button class="select__option" type="button">Казань</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="field__label" id="cat-label">Категория навыка, которому хотите научиться</span>
+								<div class="select">
+									<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="cat-label">
+										<span class="select__value select__placeholder">Выберите категорию</span>
+										<svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+									<div class="select__menu">
+										<button class="select__option" type="button">Бизнес и карьера</button>
+										<button class="select__option" type="button">Творчество и искусство</button>
+										<button class="select__option" type="button">Иностранные языки</button>
+										<button class="select__option" type="button">Образование и развитие</button>
+										<button class="select__option" type="button">Здоровье и лайфстайл</button>
+										<button class="select__option" type="button">Дом и уют</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="field__label" id="sub-label">Подкатегория навыка, которому хотите научиться</span>
+								<div class="select">
+									<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="sub-label">
+										<span class="select__value select__placeholder">Выберите подкатегорию</span>
+										<svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+									<div class="select__menu">
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Рисование и иллюстрация</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Фотография</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Видеомонтаж</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Музыка и звук</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Актёрское мастерство</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Креативное письмо</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Арт-терапия</span></label>
+										<label class="select__option check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Декор и DIY</span></label>
+									</div>
+								</div>
+							</div>
+
+							<div class="field-row">
+								<a class="btn btn--secondary" href="login.html">Назад</a>
+								<a class="btn btn--primary" href="register-3.html">Продолжить</a>
+							</div>
+						</form>
+					</section>
+
+					<section class="auth__panel auth__aside">
+						<img src="assets/svg/person-speech.svg" alt="" width="300" height="300">
+						<h1>Расскажите немного о себе</h1>
+						<p>Это поможет другим людям лучше вас узнать, чтобы выбрать для обмена</p>
+					</section>
+
+				</div>
+			</div>
+		</main>
+
+	</div>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -241,7 +241,8 @@
     border-radius: var(--radius-md);
     &:hover { background: var(--color-accent-hover); }
   }
-  &__title {
+  &__title,
+  &__step {
     grid-row: 2;
     grid-column: 1 / -1;
     margin-top: 12px;
@@ -253,6 +254,21 @@
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.26px;
+  }
+  &__step &__title { margin-top: 0; }
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  &__item {
+    width: 56px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--color-disabled);
+    &.is-done { background: var(--color-accent); }
   }
 }
 
@@ -336,6 +352,7 @@
     gap: 12px;
     padding-block: 20px 0;
   }
+  .steps__item { width: 40px; }
 
   // Компактная шапка
   .header__inner {
@@ -380,6 +397,8 @@
   }
   // Скрываем имя
 
+  textarea.input { min-height: 180px; }
+
   h1 {
     font-size: 26px;
     line-height: 32px;
@@ -399,6 +418,11 @@
     padding: 16px;
   }
   .footer__inner { grid-template-columns: minmax(0, 1fr); }
+
+  // Пары полей в колонку
+  .field-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
   // Самые узкие экраны
   .logo {

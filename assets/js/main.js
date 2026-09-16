@@ -44,6 +44,47 @@
 		});
 	});
 
+	/* --- Селекты --- */
+	$$(".select__value.select__placeholder").forEach((v) => {
+		v.dataset.placeholder = v.textContent.trim();
+	});
+
+	const closeAllSelects = (except) => {
+		$$('.select__toggle[aria-expanded="true"]').forEach((t) => {
+			if (t !== except) t.setAttribute("aria-expanded", "false");
+		});
+	};
+
+	$$(".select__toggle").forEach((toggle) => {
+		toggle.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const open = toggle.getAttribute("aria-expanded") === "true";
+			closeAllSelects(toggle);
+			toggle.setAttribute("aria-expanded", String(!open));
+		});
+	});
+
+	// Выбор варианта в одиночном селекте
+	$$(".select__menu").forEach((menu) => {
+		menu.addEventListener("click", (e) => {
+			const option = e.target.closest(".select__option");
+
+			if (!option) return;
+			const select = menu.closest(".select");
+			const toggle = select.querySelector(".select__toggle");
+			const value = toggle.querySelector(".select__value");
+			if (value) {
+				value.textContent = option.textContent.trim();
+				value.classList.remove("select__placeholder");
+			}
+			$$(".select__option", menu).forEach((o) => o.classList.remove("is-selected"));
+			option.classList.add("is-selected");
+			toggle.setAttribute("aria-expanded", "false");
+		});
+	});
+
+	document.addEventListener("click", () => closeAllSelects(null));
+
 	/* --- Лайки --- */
 	$$(".card__like").forEach((btn) => {
 		btn.addEventListener("click", () => {
