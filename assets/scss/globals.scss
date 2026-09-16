@@ -1,0 +1,90 @@
+:root {
+  /* --- Цвета: поверхности --- */
+  --color-background: #f9faf7; /* Background */
+  --color-surface: #ffffff; /* Card, input */
+  /* --- Цвета: текст --- */
+  --color-text: #253017; /* Text */
+  --color-caption: #69735d; /* Caption */
+  --color-text-disabled: #9ca197; /* Disabled Text */
+  /* --- Цвета: акценты и состояния --- */
+  --color-accent: #abd27a; /* Accent */
+  --color-accent-hover: #deebc5; /* Button hover */
+  --color-accent-pressed: #508826; /* Text link, Button pressed */
+  --color-link: #508826;
+  --color-toggle: #b2b9a9; /* Toggle */
+  --color-disabled: #e4e8df; /* Disabled */
+  --color-alarm: #e0796e; /* Alarm */
+  --color-error: #bf3920; /* Error */
+  /* --- Цвета: теги категорий --- */
+  --tag-business: #eee7f7; /* Бизнес и карьера */
+  --tag-creative: #f7e7f2; /* Творчество и искусство */
+  --tag-languages: #ebe5c5; /* Иностранные языки */
+  --tag-education: #e7f2f6; /* Образование и развитие */
+  --tag-home: #f7ebe5; /* Дом и уют */
+  --tag-health: #e9f7e7; /* Здоровье и лайфстайл */
+  --tag-more: #e8ecf7;
+  /* --- Типографика --- */
+  --font-heading: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* --- Сетка --- */
+  --container-width: 1360px;
+  --container-pad: 40px;
+  --grid-gutter: 24px;
+  --grid-columns: 12;
+  --grid-column: 85px;
+  --sidebar-width: 316px;
+  /* --- Радиусы и тени --- */
+  --radius-sm: 8px;
+  --radius-md: 8px; /* Основной радиус */
+  --radius-lg: 16px;
+}
+
+// --- Текстовые стили ---
+.text-h1 {
+  font: 500 32px/40px var(--font-heading);
+  letter-spacing: -0.35px;
+}
+.text-h2 {
+  font: 500 24px/28px var(--font-heading);
+  letter-spacing: -0.26px;
+}
+.text-h3 {
+  font: 500 20px/24px var(--font-heading);
+  letter-spacing: -0.22px;
+}
+.text-h4 {
+  font: 500 16px/24px var(--font-body);
+  letter-spacing: 0.32px;
+}
+.text-body {
+  font: 400 16px/24px var(--font-body);
+  letter-spacing: 0.32px;
+}
+.text-caption {
+  font: 400 12px/16px var(--font-body);
+  letter-spacing: 0.24px;
+}
+
+// --- Тёмная тема ---
+:root[data-theme="dark"] {
+  --color-background: #1a2011;
+  --color-surface: #2a3520;
+  --color-text: #f1f4ec;
+  --color-caption: #b2b9a9;
+  --color-text-disabled: #69735d;
+  --color-accent: #7ca84e;
+  --color-accent-hover: #93bc64;
+  --color-accent-pressed: #abd27a;
+  --color-link: #abd27a;
+  --color-toggle: #69735d;
+  --color-disabled: #4a5540;
+  --color-alarm: #e0796e;
+  --color-error: #e0796e;
+  --tag-business: #3b3450;
+  --tag-creative: #4a3342;
+  --tag-languages: #474227;
+  --tag-education: #24404a;
+  --tag-home: #4a3a2e;
+  --tag-health: #2c4429;
+  --tag-more: #303a52;
+}

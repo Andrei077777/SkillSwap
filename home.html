@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SkillSwap — обмен навыками</title>
+	<meta name="description" content="SkillSwap — площадка обмена знаниями и навыками между людьми.">
+	<link rel="icon" href="assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+</head>
+
+<body>
+	<div class="page">
+
+		<!-- Шапка -->
+		<header class="header">
+			<div class="container header__inner">
+				<a class="logo" href="home.html">
+					<span class="logo__mark"><svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+						</svg></span>
+					SkillSwap
+				</a>
+
+				<nav class="header__nav">
+					<a href="#">О проекте</a>
+					<button class="header__nav-toggle" type="button" aria-expanded="false">
+						Все навыки
+						<svg class="icon icon--sm" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+						</svg>
+					</button>
+				</nav>
+
+				<form class="header__search" role="search">
+					<label class="visually-hidden" for="search">Искать навык</label>
+					<div class="input-wrap search">
+						<span class="input-wrap__icon-left"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-search"></use>
+							</svg></span>
+						<input class="input" id="search" type="search" placeholder="Искать навык">
+					</div>
+				</form>
+
+				<div class="header__actions">
+					<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
+						<svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-moon"></use>
+						</svg>
+					</button>
+					<div class="header__buttons">
+						<a class="btn btn--secondary" href="login.html">Войти</a>
+						<a class="btn btn--primary" href="register-2.html">Зарегистрироваться</a>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+		<main class="page__main">
+			<div class="container">
+				<div class="catalog">
+
+					<!-- Фильтры -->
+					<button class="btn btn--secondary filters__mobile-toggle" type="button" data-filters-toggle aria-expanded="false" aria-controls="filters">
+						Фильтры
+						<svg class="icon icon--sm" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+						</svg>
+					</button>
+
+					<aside class="filters is-collapsed" id="filters">
+						<h2>Фильтры</h2>
+
+						<div class="filters__group">
+							<div class="filters__list">
+								<label class="check"><input type="radio" name="mode" checked><span class="radio__box"></span><span class="check__text">Всё</span></label>
+								<label class="check"><input type="radio" name="mode"><span class="radio__box"></span><span class="check__text">Хочу научиться</span></label>
+								<label class="check"><input type="radio" name="mode"><span class="radio__box"></span><span class="check__text">Могу научить</span></label>
+							</div>
+						</div>
+
+						<div class="filters__group">
+							<h3 class="filters__title">Навыки</h3>
+							<div class="filters__list">
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Бизнес и карьера</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Творчество и искусство</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Иностранные языки</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Образование и развитие</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Здоровье и лайфстайл</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Дом и уют</span></label>
+							</div>
+							<button class="link-more" type="button">
+								Все категории
+								<svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg>
+							</button>
+						</div>
+
+						<div class="filters__group">
+							<h3 class="filters__title">Пол автора</h3>
+							<div class="filters__list">
+								<label class="check"><input type="radio" name="gender" checked><span class="radio__box"></span><span class="check__text">Не имеет значения</span></label>
+								<label class="check"><input type="radio" name="gender"><span class="radio__box"></span><span class="check__text">Мужской</span></label>
+								<label class="check"><input type="radio" name="gender"><span class="radio__box"></span><span class="check__text">Женский</span></label>
+							</div>
+						</div>
+
+						<div class="filters__group">
+							<h3 class="filters__title">Город</h3>
+							<div class="filters__list">
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Москва</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Санкт-Петербург</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Новосибирск</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Екатеринбург</span></label>
+								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Казань</span></label>
+							</div>
+							<button class="link-more" type="button">
+								Все города
+								<svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg>
+							</button>
+						</div>
+					</aside>
+
+					<!-- Контент -->
+					<div>
+						<section class="section">
+							<div class="section__head">
+								<h1>Популярное</h1>
+								<a class="btn btn--surface" href="catalog-filtered.html">
+									Смотреть все
+									<svg class="icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-chevron-right"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="cards-grid">
+								<!-- карточка -->
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-1"></span>
+										<div>
+											<p class="card__name">Иван</p>
+											<p class="card__meta">Санкт-Петербург, 34 года</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-2"></span>
+										<div>
+											<p class="card__name">Анна</p>
+											<p class="card__meta">Казань, 26 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-3"></span>
+										<div>
+											<p class="card__name">Максим</p>
+											<p class="card__meta">Москва, 23 года</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--business">Бизнес-план</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+							</div>
+						</section>
+
+						<section class="section">
+							<div class="section__head">
+								<h2>Новое</h2>
+								<a class="btn btn--surface" href="catalog-filtered.html">
+									Смотреть все
+									<svg class="icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-chevron-right"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="cards-grid">
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-4"></span>
+										<div>
+											<p class="card__name">Илона</p>
+											<p class="card__meta">Екатеринбург, 33 года</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-5"></span>
+										<div>
+											<p class="card__name">Михаил</p>
+											<p class="card__meta">Новосибирск, 29 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-6"></span>
+										<div>
+											<p class="card__name">Мария</p>
+											<p class="card__meta">Краснодар, 21 год</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+							</div>
+						</section>
+
+						<section class="section">
+							<div class="section__head">
+								<h2>Рекомендуем</h2>
+							</div>
+							<div class="cards-grid">
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-7"></span>
+										<div>
+											<p class="card__name">Виктория</p>
+											<p class="card__meta">Кемерово, 30 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-8"></span>
+										<div>
+											<p class="card__name">Елизавета</p>
+											<p class="card__meta">Владивосток, 25 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-9"></span>
+										<div>
+											<p class="card__name">Виктория</p>
+											<p class="card__meta">Сочи, 31 год</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-2"></span>
+										<div>
+											<p class="card__name">Елена</p>
+											<p class="card__meta">Красноярск, 28 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-1"></span>
+										<div>
+											<p class="card__name">Константин</p>
+											<p class="card__meta">Иркутск, 36 лет</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+								<article class="card">
+									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like"></use>
+										</svg></button>
+									<div class="card__head">
+										<span class="avatar avatar--ph avatar--ph-3"></span>
+										<div>
+											<p class="card__name">София</p>
+											<p class="card__meta">Абакан, 24 года</p>
+										</div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Может научить:</p>
+										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
+									</div>
+									<div class="card__section">
+										<p class="card__section-title">Хочет научиться:</p>
+										<div class="tag-list">
+											<span class="tag tag--education">Тайм менеджмент</span>
+											<span class="tag tag--health">Медитация</span>
+											<span class="tag tag--more">+2</span>
+										</div>
+									</div>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+								</article>
+
+
+
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__inner">
+					<div class="footer__col">
+						<a class="logo" href="home.html">
+							<span class="logo__mark"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+								</svg></span>
+							SkillSwap
+						</a>
+					</div>
+					<nav class="footer__col">
+						<a href="#">О проекте</a>
+						<a href="catalog-filtered.html">Все навыки</a>
+					</nav>
+					<nav class="footer__col">
+						<a href="#">Контакты</a>
+						<a href="#">Блог</a>
+					</nav>
+					<nav class="footer__col">
+						<a href="#">Политика конфиденциальности</a>
+						<a href="#">Пользовательское соглашение</a>
+					</nav>
+				</div>
+				<p class="footer__copy caption">SkillSwap — 2025</p>
+			</div>
+		</footer>
+
+	</div>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
