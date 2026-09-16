@@ -185,6 +185,92 @@
   gap: 24px;
 }
 
+// Вход и регистрация
+.auth {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+  max-width: 1136px;
+  margin-inline: auto;
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 692px;
+    padding: 60px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 436px;
+    margin: auto;
+  }
+  &__aside {
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+}
+.auth__aside img,
+.auth__aside svg {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+// Шапка входа и регистрации
+.auth-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding-block: 36px 0;
+  .logo { grid-row: 1; grid-column: 1; }
+  &__close {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
+    background: var(--color-surface);
+    color: var(--color-text);
+    box-shadow: none;
+    border-radius: var(--radius-md);
+    &:hover { background: var(--color-accent-hover); }
+  }
+  &__title {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    text-align: center;
+  }
+  &__title {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.26px;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-caption);
+  font-size: 14px;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-disabled);
+}
+
 // АДАПТИВ
 
 // Планшет: 1024px и ниже
@@ -208,6 +294,17 @@
   }
   .header__actions { margin-left: auto; }
 
+  // Одна колонка
+  .auth {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+    &__aside { order: -1; }
+    &__panel {
+      min-height: 0;
+      padding: 40px;
+    }
+  }
+
   // Фильтры сворачиваются
   .filters__mobile-toggle {
     display: inline-flex;
@@ -230,6 +327,15 @@
   .page__main { padding-block: 16px 40px; }
 
   .cards-grid { grid-template-columns: minmax(0, 1fr); }
+
+  .auth__panel { padding: 24px; }
+  .auth__aside img,
+  .auth__aside svg { width: 200px; }
+
+  .auth-header {
+    gap: 12px;
+    padding-block: 20px 0;
+  }
 
   // Компактная шапка
   .header__inner {
@@ -331,6 +437,7 @@
 
   // Панели шапки
 
+  .auth__panel { padding: 20px; }
   .filters {
     padding: 16px;
   }

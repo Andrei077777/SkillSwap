@@ -53,4 +53,12 @@
 			btn.setAttribute("aria-label", active ? "Убрать из избранного" : "В избранное");
 		});
 	});
+
+	/* --- Показ пароля --- */
+	$$("[data-password-toggle]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const input = btn.closest(".input-wrap").querySelector("input");
+			input.type = input.type === "password" ? "text" : "password";
+		});
+	});
 })();

@@ -123,6 +123,16 @@
 }
 
 // Поля ввода
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  &__label {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+  }
+}
 
 .input-wrap {
   position: relative;
@@ -153,7 +163,8 @@
   &:disabled { color: var(--color-text-disabled); }
 }
 
-.input-wrap .btn-icon {
+.input-wrap .btn-icon,
+.input-wrap__action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -164,6 +175,7 @@
   color: var(--color-text);
   flex: none;
 }
+.input-wrap__action:hover { background: var(--color-accent-hover); }
 .input-wrap__icon-left {
   display: flex;
   padding-left: 16px;
