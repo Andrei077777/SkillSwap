@@ -19,9 +19,9 @@
   &__inner {
     display: flex;
     align-items: center;
-    gap: 24px;
-    min-height: 120px;
-    padding-block: 36px;
+    gap: 32px;
+    min-height: 104px;
+    padding-block: 36px 20px;
   }
 }
 
@@ -43,6 +43,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
+    flex: none;
     border-radius: 50%;
     background: var(--color-accent);
     color: var(--color-background);
@@ -103,7 +104,7 @@
   &__inner {
     display: grid;
     /* Колонки футера */
-    grid-template-columns: minmax(200px, 1fr) repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(159px, 1fr) repeat(3, minmax(0, 324px));
     gap: 24px;
     align-items: start;
   }
@@ -217,6 +218,13 @@
   .filters.is-collapsed { display: none; }
 }
 
+// Футер: колонки перестраиваются раньше
+@media (max-width: 1275px) {
+  .footer__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__col:first-child { grid-column: 1 / -1; }
+  .footer__inner > .footer__col:not(:first-child) { padding-top: 24px; }
+}
+
 // Мобильный: 720px и ниже
 @media (max-width: 719px) {
   .page__main { padding-block: 16px 40px; }
@@ -228,10 +236,7 @@
     min-height: 64px;
     gap: 12px;
   }
-  .header__actions {
-    flex: 1 1 100%;
-    gap: 12px;
-  }
+  .header__actions { gap: 12px; }
   .header__buttons { gap: 6px; }
   .header__buttons .btn {
     min-height: 40px;
@@ -276,5 +281,57 @@
   h2 {
     font-size: 20px;
     line-height: 26px;
+  }
+}
+
+// Узкий мобильный
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 16px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .footer__inner { grid-template-columns: minmax(0, 1fr); }
+
+  // Самые узкие экраны
+  .logo {
+    font-size: 18px;
+    gap: 8px;
+    &__mark {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .logo__mark .icon {
+    width: 16px;
+    height: 16px;
+  }
+  .header__actions { gap: 22px; }
+  .header__buttons .btn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  // Кнопка регистрации — иконкой
+  .header__buttons .btn--primary .btn__label { display: none; }
+  .header__buttons .btn--primary .btn__icon { display: block; }
+  .header__buttons .btn--primary {
+    width: 40px;
+    min-width: 40px;
+    padding: 8px;
+  }
+  .btn-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .btn-icon .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  // Панели шапки
+
+  .filters {
+    padding: 16px;
   }
 }

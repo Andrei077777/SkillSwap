@@ -335,7 +335,7 @@
 .tag {
 	display: inline-flex;
 	align-items: center;
-	padding: 4px 12px;
+	padding: 8px 12px;
 	border-radius: 999px;
 	background: var(--tag-more);
 	font-size: 12px;
@@ -375,8 +375,8 @@
 /* Аватар */
 .avatar {
 	flex: none;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
 	object-fit: cover;
 	background: var(--color-disabled);
@@ -387,8 +387,8 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	padding: 16px;
+	gap: 16px;
+	padding: 20px;
 	background: var(--color-surface);
 	border-radius: var(--radius-md);
 }
@@ -396,7 +396,7 @@
 .card__head {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 12px;
 }
 .card__name {
 	font-family: var(--font-heading);
@@ -413,8 +413,8 @@
 
 .card__like {
 	position: absolute;
-	top: 12px;
-	right: 12px;
+	top: 16px;
+	right: 16px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
