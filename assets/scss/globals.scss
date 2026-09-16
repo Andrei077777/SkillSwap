@@ -27,12 +27,12 @@
   --font-heading: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
   /* --- Сетка --- */
-  --container-width: 1360px;
-  --container-pad: 40px;
+  --container-width: 1440px;
+  --container-pad: 36px;
   --grid-gutter: 24px;
   --grid-columns: 12;
-  --grid-column: 85px;
-  --sidebar-width: 316px;
+  --grid-column: 92px;
+  --sidebar-width: 324px;
   /* --- Радиусы и тени --- */
   --radius-sm: 8px;
   --radius-md: 8px; /* Основной радиус */
@@ -68,7 +68,7 @@
 // --- Тёмная тема ---
 :root[data-theme="dark"] {
   --color-background: #1a2011;
-  --color-surface: #2a3520;
+  --color-surface: #253017;
   --color-text: #f1f4ec;
   --color-caption: #b2b9a9;
   --color-text-disabled: #69735d;
@@ -77,7 +77,7 @@
   --color-accent-pressed: #abd27a;
   --color-link: #abd27a;
   --color-toggle: #69735d;
-  --color-disabled: #4a5540;
+  --color-disabled: #3a452c;
   --color-alarm: #e0796e;
   --color-error: #e0796e;
   --tag-business: #3b3450;
