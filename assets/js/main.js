@@ -106,7 +106,78 @@
 		});
 	});
 
-	document.addEventListener("click", () => closeAllSelects(null));
+	/* --- Попоуверы шапки --- */
+	const closeAllPopovers = (except) => {
+		$$(".header__popover").forEach((p) => {
+			if (p !== except) {
+				p.hidden = true;
+				const owner = document.querySelector(`[aria-controls="${p.id}"]`);
+				if (owner) owner.setAttribute("aria-expanded", "false");
+			}
+		});
+	};
+
+	$$("[data-popover-toggle]").forEach((btn) => {
+		const panel = document.getElementById(btn.getAttribute("aria-controls"));
+		if (!panel) return;
+		btn.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const open = btn.getAttribute("aria-expanded") === "true";
+			closeAllPopovers(open ? null : panel);
+			btn.setAttribute("aria-expanded", String(!open));
+			panel.hidden = open;
+		});
+	});
+
+	document.addEventListener("click", () => {
+		closeAllSelects(null);
+		closeAllPopovers(null);
+	});
+
+	document.addEventListener("keydown", (e) => {
+		if (e.key !== "Escape") return;
+		closeAllSelects(null);
+		closeAllPopovers(null);
+		$$(".modal-backdrop:not([hidden])").forEach((m) => {
+			m.hidden = true;
+		});
+	});
+
+	/* --- Уведомления --- */
+	$$(".notifications").forEach((panel) => {
+		const newSection = panel.querySelector("[data-notif-new]");
+		const seenSection = panel.querySelector("[data-notif-seen]");
+		const bell = document.querySelector(`[aria-controls="${panel.id}"]`);
+
+		const emptyText = (section, text) => {
+			const list = section.querySelector(".notifications__list");
+			if (!list || list.children.length) return;
+			const p = document.createElement("p");
+			p.className = "notifications__empty";
+			p.textContent = text;
+			list.replaceWith(p);
+		};
+
+		panel.querySelector("[data-notif-read-all]")?.addEventListener("click", () => {
+			const from = newSection?.querySelector(".notifications__list");
+			const to = seenSection?.querySelector(".notifications__list");
+			if (from && to) {
+				[...from.children].forEach((item) => {
+					item.classList.add("notif--seen");
+					item.querySelector(".notif__go")?.remove();
+					to.prepend(item);
+				});
+			}
+			bell?.classList.remove("has-badge");
+			if (newSection) emptyText(newSection, "Новых уведомлений нет");
+		});
+
+		panel.querySelector("[data-notif-clear]")?.addEventListener("click", () => {
+			const list = seenSection?.querySelector(".notifications__list");
+			if (list) list.innerHTML = "";
+			if (seenSection) emptyText(seenSection, "Список пуст");
+		});
+	});
 
 	/* --- Лайки --- */
 	$$(".card__like, [data-like]").forEach((btn) => {
@@ -117,6 +188,40 @@
 			btn.setAttribute("aria-label", active ? "Убрать из избранного" : "В избранное");
 		});
 	});
+
+	/* --- Тосты --- */
+	const SPRITE = "assets/svg/sprite.svg";
+
+	const hideToast = (toast) => {
+		if (!toast || toast.classList.contains("is-leaving")) return;
+		toast.classList.add("is-leaving");
+		toast.addEventListener("animationend", () => toast.remove(), { once: true });
+		setTimeout(() => toast.remove(), 400);
+	};
+
+	document.addEventListener("click", (e) => {
+		const btn = e.target.closest("[data-toast-close]");
+		if (btn) hideToast(btn.closest(".toast"));
+	});
+
+	const showToast = ({ text = "", action = null, href = "#", timeout = 0 } = {}) => {
+		const stack = document.querySelector(".toasts");
+		if (!stack) return null;
+
+		const toast = document.createElement("div");
+		toast.className = "toast" + (action ? " toast--action" : "");
+		toast.setAttribute("role", "status");
+		toast.innerHTML = '<svg class="icon toast__icon" aria-hidden="true"><use href="' + SPRITE + '#i-idea"></use></svg>' + '<span class="toast__text"></span>' + '<button class="toast__close" type="button" data-toast-close aria-label="Скрыть">' + '<svg class="icon" aria-hidden="true"><use href="' + SPRITE + '#i-cross"></use></svg>' + "</button>" + (action ? '<a class="btn toast__go" href="' + href + '"></a>' : "");
+
+		toast.querySelector(".toast__text").textContent = text;
+		if (action) toast.querySelector(".toast__go").textContent = action;
+
+		stack.appendChild(toast);
+		if (timeout > 0) setTimeout(() => hideToast(toast), timeout);
+		return toast;
+	};
+
+	window.SkillSwap = Object.assign(window.SkillSwap || {}, { showToast, hideToast });
 
 	/* --- Проверка формы входа --- */
 	$$("[data-login-form]").forEach((form) => {
@@ -183,6 +288,22 @@
 			const use = btn.querySelector("use");
 			if (use) use.setAttribute("href", `assets/svg/sprite.svg#i-eye${shown ? "" : "-slash"}`);
 			btn.setAttribute("aria-label", shown ? "Показать пароль" : "Скрыть пароль");
+		});
+	});
+
+	/* --- Очистка поля поиска --- */
+	$$("[data-search-clear]").forEach((btn) => {
+		const input = btn.closest(".input-wrap").querySelector("input");
+		if (!input) return;
+		const sync = () => {
+			btn.hidden = !input.value;
+		};
+		sync();
+		input.addEventListener("input", sync);
+		btn.addEventListener("click", () => {
+			input.value = "";
+			sync();
+			input.focus();
 		});
 	});
 

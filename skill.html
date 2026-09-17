@@ -44,6 +44,11 @@
 								<use href="assets/svg/sprite.svg#i-search"></use>
 							</svg></span>
 						<input class="input" id="search" type="search" placeholder="Искать навык">
+						<button class="input-wrap__action" type="button" data-search-clear aria-label="Очистить" hidden>
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-cross"></use>
+							</svg>
+						</button>
 					</div>
 				</form>
 
@@ -54,7 +59,7 @@
 								<use href="assets/svg/sprite.svg#i-moon"></use>
 							</svg>
 						</button>
-						<button class="btn-icon has-badge" type="button" aria-label="Уведомления">
+						<button class="btn-icon has-badge" type="button" data-popover-toggle aria-controls="notifications" aria-expanded="false" aria-label="Уведомления">
 							<svg class="icon" aria-hidden="true">
 								<use href="assets/svg/sprite.svg#i-notification"></use>
 							</svg>
@@ -65,11 +70,82 @@
 							</svg>
 						</a>
 					</div>
-					<button class="header__user" type="button">
+					<button class="header__user" type="button" data-popover-toggle aria-controls="profile-menu" aria-expanded="false">
 						<span>Мария</span>
 						<span class="avatar avatar--sm avatar--ph avatar--ph-7"></span>
 					</button>
 
+					<div class="header__popover notifications" id="notifications" hidden>
+						<section class="notifications__section" data-notif-new>
+							<div class="notifications__head">
+								<h2 class="notifications__title">Новые уведомления</h2>
+								<button class="notifications__action" type="button" data-notif-read-all>Прочитать все</button>
+							</div>
+							<ul class="notifications__list">
+								<li class="notif">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Николай принял ваш обмен</p>
+										<p class="notif__text">Перейдите в профиль, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">сегодня</span>
+									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+								</li>
+								<li class="notif">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Татьяна предлагает вам обмен</p>
+										<p class="notif__text">Примите обмен, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">сегодня</span>
+									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+								</li>
+							</ul>
+						</section>
+
+						<section class="notifications__section" data-notif-seen>
+							<div class="notifications__head">
+								<h2 class="notifications__title">Просмотренные</h2>
+								<button class="notifications__action" type="button" data-notif-clear>Очистить</button>
+							</div>
+							<ul class="notifications__list">
+								<li class="notif notif--seen">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Олег предлагает вам обмен</p>
+										<p class="notif__text">Примите обмен, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">вчера</span>
+								</li>
+								<li class="notif notif--seen">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Игорь принял ваш обмен</p>
+										<p class="notif__text">Перейдите в профиль, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">23 мая</span>
+								</li>
+							</ul>
+						</section>
+					</div>
+
+					<div class="header__popover header__popover--menu" id="profile-menu" hidden>
+						<a class="header__popover-item" href="profile.html">Личный кабинет</a>
+						<a class="header__popover-item" href="home.html">
+							Выйти из аккаунта
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-logout"></use>
+							</svg>
+						</a>
+					</div>
 				</div>
 
 			</div>

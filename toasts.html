@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Всплывающие уведомления — SkillSwap</title>
+	<link rel="icon" href="assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<style>
+		.demo {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+			max-width: 620px;
+			margin-inline: auto;
+		}
+
+		.demo__block {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			padding: 32px;
+			background: var(--color-surface);
+			border-radius: var(--radius-lg);
+		}
+
+		.demo__title {
+			font-family: var(--font-heading);
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 24px;
+			letter-spacing: -0.22px;
+		}
+
+		.demo__row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+		}
+
+		.demo__samples {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			max-width: 372px;
+		}
+
+		.demo__samples .toast {
+			animation: none;
+		}
+
+		.demo__note {
+			font-size: 12px;
+			line-height: 16px;
+			letter-spacing: 0.24px;
+			color: var(--color-caption);
+		}
+
+		.demo__code {
+			padding: 16px;
+			background: var(--color-background);
+			border-radius: var(--radius-sm);
+			font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+			font-size: 12px;
+			line-height: 18px;
+			color: var(--color-text);
+			overflow-x: auto;
+			white-space: pre;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page">
+
+		<header class="header">
+			<div class="container header__inner">
+				<a class="logo" href="catalog.html">
+					<span class="logo__mark"><svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+						</svg></span>
+					SkillSwap
+				</a>
+				<div class="header__actions" style="margin-left:auto">
+					<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
+						<svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-moon"></use>
+						</svg>
+					</button>
+					<a class="btn btn--surface" href="catalog.html">
+						<svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-arrow-left"></use>
+						</svg>
+						В каталог
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="page__main">
+			<div class="container">
+				<div class="demo">
+
+					<!-- Запуск -->
+					<section class="demo__block">
+						<h2 class="demo__title">Показать уведомление</h2>
+						<div class="demo__row">
+							<button class="btn btn--primary" type="button" data-demo="plain">Простое</button>
+							<button class="btn btn--primary" type="button" data-demo="action">С кнопкой «Перейти»</button>
+							<button class="btn btn--secondary" type="button" data-demo="stack">Показать несколько</button>
+							<button class="btn btn--secondary" type="button" data-demo="auto">Автоскрытие через 4 с</button>
+							<button class="btn btn--tertiary" type="button" data-demo="clear">Убрать все</button>
+						</div>
+						<p class="demo__note">Каждое уведомление закрывается крестиком. Появление и скрытие анимированы; при системной настройке «уменьшить движение» анимация отключается.</p>
+					</section>
+
+					<!-- Образцы -->
+					<section class="demo__block">
+						<h2 class="demo__title">Как это выглядит</h2>
+						<div class="demo__samples">
+
+							<div class="toast">
+								<svg class="icon toast__icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-idea"></use>
+								</svg>
+								<span class="toast__text">Олег предлагает вам обмен</span>
+								<button class="toast__close" type="button" data-toast-close aria-label="Скрыть">
+									<svg class="icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-cross"></use>
+									</svg>
+								</button>
+							</div>
+
+							<div class="toast toast--action">
+								<svg class="icon toast__icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-idea"></use>
+								</svg>
+								<span class="toast__text">Олег предлагает вам обмен</span>
+								<button class="toast__close" type="button" data-toast-close aria-label="Скрыть">
+									<svg class="icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-cross"></use>
+									</svg>
+								</button>
+								<a class="btn toast__go" href="profile.html">Перейти</a>
+							</div>
+
+						</div>
+						<p class="demo__note">Вариант с кнопкой: белая таблетка «Перейти» лежит поверх текста в правом нижнем углу — как в макете.</p>
+					</section>
+
+					<!-- Как вызывать -->
+					<section class="demo__block">
+						<h2 class="demo__title">Как вызвать из кода</h2>
+						<div class="demo__code">// нужен контейнер &lt;div class="toasts"&gt;&lt;/div&gt; на странице
+
+							SkillSwap.showToast({ text: 'Олег предлагает вам обмен' });
+
+							SkillSwap.showToast({
+							text: 'Татьяна предлагает вам обмен',
+							action: 'Перейти',
+							href: 'profile.html',
+							timeout: 4000 // 0 или без него — висит до закрытия
+							});</div>
+						<p class="demo__note">Функция объявлена в <strong>js/main.js</strong>, стили — в <strong>css/components.css</strong>, блок <code>.toast</code> и <code>.toasts</code>.</p>
+					</section>
+
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p class="footer__copy caption">SkillSwap — 2025</p>
+			</div>
+		</footer>
+
+		<!-- Всплывающие уведомления -->
+		<div class="toasts"></div>
+
+	</div>
+
+	<script src="assets/js/main.js"></script>
+	<script>
+		(() => {
+			const PLAIN = [
+				'Олег предлагает вам обмен',
+				'Николай принял ваш обмен',
+				'Ваш навык прошёл модерацию',
+				'Анна добавила вас в избранное',
+			];
+			const WITH_ACTION = [
+				'Татьяна предлагает вам обмен',
+				'Игорь принял ваш обмен',
+				'Михаил ответил на вашу заявку',
+			];
+
+			let i = 0, j = 0;
+			const plain = () => SkillSwap.showToast({ text: PLAIN[i++ % PLAIN.length] });
+			const withAction = (timeout = 0) => SkillSwap.showToast({
+				text: WITH_ACTION[j++ % WITH_ACTION.length],
+				action: 'Перейти',
+				href: 'profile.html',
+				timeout,
+			});
+
+			const actions = {
+				plain,
+				action: () => withAction(),
+				auto: () => withAction(4000),
+				stack: () => {
+					plain();
+					setTimeout(() => withAction(), 400);
+					setTimeout(plain, 800);
+				},
+				clear: () => document.querySelectorAll('.toasts .toast').forEach(SkillSwap.hideToast),
+			};
+
+			document.querySelectorAll('[data-demo]').forEach((btn) => {
+				btn.addEventListener('click', () => actions[btn.dataset.demo]());
+			});
+
+			// Уведомления при открытии
+			setTimeout(plain, 600);
+			setTimeout(() => withAction(), 1200);
+		})();
+	</script>
+</body>
+
+</html>

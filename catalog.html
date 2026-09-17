@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SkillSwap — обмен навыками</title>
+	<title>Каталог навыков — SkillSwap</title>
 	<meta name="description" content="SkillSwap — площадка обмена знаниями и навыками между людьми.">
 	<link rel="icon" href="assets/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" href="assets/favicon.png">
@@ -21,7 +21,7 @@
 		<!-- Шапка -->
 		<header class="header">
 			<div class="container header__inner">
-				<a class="logo" href="home.html">
+				<a class="logo" href="catalog.html">
 					<span class="logo__mark"><svg class="icon" aria-hidden="true">
 							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
 						</svg></span>
@@ -54,16 +54,98 @@
 				</form>
 
 				<div class="header__actions">
-					<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
-						<svg class="icon" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-moon"></use>
-						</svg>
+					<div class="header__icons">
+						<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-moon"></use>
+							</svg>
+						</button>
+						<button class="btn-icon has-badge" type="button" data-popover-toggle aria-controls="notifications" aria-expanded="false" aria-label="Уведомления">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-notification"></use>
+							</svg>
+						</button>
+						<a class="btn-icon" href="#" aria-label="Избранное">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-like"></use>
+							</svg>
+						</a>
+					</div>
+					<button class="header__user" type="button" data-popover-toggle aria-controls="profile-menu" aria-expanded="false">
+						<span>Мария</span>
+						<span class="avatar avatar--sm avatar--ph avatar--ph-7"></span>
 					</button>
-					<div class="header__buttons">
-						<a class="btn btn--secondary" href="login.html">Войти</a>
-						<a class="btn btn--primary" href="register-2.html" aria-label="Зарегистрироваться"><svg class="icon btn__icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-user-circle"></use>
-							</svg><span class="btn__label">Зарегистрироваться</span></a>
+
+					<div class="header__popover notifications" id="notifications" hidden>
+						<section class="notifications__section" data-notif-new>
+							<div class="notifications__head">
+								<h2 class="notifications__title">Новые уведомления</h2>
+								<button class="notifications__action" type="button" data-notif-read-all>Прочитать все</button>
+							</div>
+							<ul class="notifications__list">
+								<li class="notif">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Николай принял ваш обмен</p>
+										<p class="notif__text">Перейдите в профиль, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">сегодня</span>
+									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+								</li>
+								<li class="notif">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Татьяна предлагает вам обмен</p>
+										<p class="notif__text">Примите обмен, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">сегодня</span>
+									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+								</li>
+							</ul>
+						</section>
+
+						<section class="notifications__section" data-notif-seen>
+							<div class="notifications__head">
+								<h2 class="notifications__title">Просмотренные</h2>
+								<button class="notifications__action" type="button" data-notif-clear>Очистить</button>
+							</div>
+							<ul class="notifications__list">
+								<li class="notif notif--seen">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Олег предлагает вам обмен</p>
+										<p class="notif__text">Примите обмен, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">вчера</span>
+								</li>
+								<li class="notif notif--seen">
+									<svg class="icon notif__icon" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-idea"></use>
+									</svg>
+									<div>
+										<p class="notif__title">Игорь принял ваш обмен</p>
+										<p class="notif__text">Перейдите в профиль, чтобы обсудить детали</p>
+									</div>
+									<span class="notif__date">23 мая</span>
+								</li>
+							</ul>
+						</section>
+					</div>
+
+					<div class="header__popover header__popover--menu" id="profile-menu" hidden>
+						<a class="header__popover-item" href="profile.html">Личный кабинет</a>
+						<a class="header__popover-item" href="home.html">
+							Выйти из аккаунта
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-logout"></use>
+							</svg>
+						</a>
 					</div>
 				</div>
 
@@ -138,7 +220,7 @@
 					<div>
 						<section class="section">
 							<div class="section__head">
-								<h1>Популярное</h1>
+								<h1>Точное совпадение</h1>
 								<a class="btn btn--surface" href="catalog-filtered.html">
 									Смотреть все
 									<svg class="icon" aria-hidden="true">
@@ -149,8 +231,8 @@
 							<div class="cards-grid">
 								<!-- карточка -->
 								<article class="card">
-									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+									<button class="card__like is-active" type="button" aria-label="Убрать из избранного"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-like-fill"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-1"></span>
@@ -171,7 +253,12 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<button class="btn btn--secondary btn--block" type="button">
+										<svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-clock"></use>
+										</svg>
+										Обмен предложен
+									</button>
 								</article>
 
 								<article class="card">
@@ -197,7 +284,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -223,14 +310,14 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 							</div>
 						</section>
 
 						<section class="section">
 							<div class="section__head">
-								<h2>Новое</h2>
+								<h2>Новые идеи</h2>
 								<a class="btn btn--surface" href="catalog-filtered.html">
 									Смотреть все
 									<svg class="icon" aria-hidden="true">
@@ -262,7 +349,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -288,7 +375,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -314,7 +401,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 							</div>
 						</section>
@@ -347,7 +434,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -373,7 +460,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -399,7 +486,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -425,7 +512,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -451,7 +538,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 
 								<article class="card">
@@ -477,85 +564,7 @@
 											<span class="tag tag--more">+2</span>
 										</div>
 									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
-								</article>
-
-								<article class="card">
-									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
-										</svg></button>
-									<div class="card__head">
-										<span class="avatar avatar--ph avatar--ph-4"></span>
-										<div>
-											<p class="card__name">Екатерина</p>
-											<p class="card__meta">Пермь, 33 года</p>
-										</div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Может научить:</p>
-										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Хочет научиться:</p>
-										<div class="tag-list">
-											<span class="tag tag--education">Тайм менеджмент</span>
-											<span class="tag tag--health">Медитация</span>
-											<span class="tag tag--more">+2</span>
-										</div>
-									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
-								</article>
-
-								<article class="card">
-									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
-										</svg></button>
-									<div class="card__head">
-										<span class="avatar avatar--ph avatar--ph-5"></span>
-										<div>
-											<p class="card__name">Дарья</p>
-											<p class="card__meta">Ярославль, 26 лет</p>
-										</div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Может научить:</p>
-										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Хочет научиться:</p>
-										<div class="tag-list">
-											<span class="tag tag--education">Тайм менеджмент</span>
-											<span class="tag tag--health">Медитация</span>
-											<span class="tag tag--more">+2</span>
-										</div>
-									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
-								</article>
-
-								<article class="card">
-									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
-										</svg></button>
-									<div class="card__head">
-										<span class="avatar avatar--ph avatar--ph-6"></span>
-										<div>
-											<p class="card__name">Алла</p>
-											<p class="card__meta">Архангельск, 22 года</p>
-										</div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Может научить:</p>
-										<div class="tag-list"><span class="tag tag--creative">Игра на барабанах</span></div>
-									</div>
-									<div class="card__section">
-										<p class="card__section-title">Хочет научиться:</p>
-										<div class="tag-list">
-											<span class="tag tag--education">Тайм менеджмент</span>
-											<span class="tag tag--health">Медитация</span>
-											<span class="tag tag--more">+2</span>
-										</div>
-									</div>
-									<button class="btn btn--primary btn--block" type="button" data-modal-open="login-modal">Подробнее</button>
+									<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 								</article>
 							</div>
 						</section>
@@ -569,7 +578,7 @@
 			<div class="container">
 				<div class="footer__inner">
 					<div class="footer__col">
-						<a class="logo" href="home.html">
+						<a class="logo" href="catalog.html">
 							<span class="logo__mark"><svg class="icon" aria-hidden="true">
 									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
 								</svg></span>
@@ -593,18 +602,26 @@
 			</div>
 		</footer>
 
-		<!-- Модалка входа -->
-		<div class="modal-backdrop" id="login-modal" hidden>
-			<div class="modal modal--sm" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
-				<span class="modal__icon"><svg class="icon" aria-hidden="true">
-						<use href="assets/svg/sprite.svg#i-user-circle"></use>
-					</svg></span>
-				<h2 class="modal__title" id="login-modal-title">Пожалуйста, войдите в аккаунт</h2>
-				<p class="modal__subtitle">Присоединяйтесь к SkillSwap и обменивайтесь знаниями и навыками с другими людьми</p>
-				<div class="modal__actions">
-					<button class="btn btn--secondary" type="button" data-modal-close>Отмена</button>
-					<a class="btn btn--primary" href="login.html">Войти</a>
-				</div>
+		<!-- Всплывающие уведомления -->
+		<div class="toasts">
+			<div class="toast">
+				<svg class="icon toast__icon" aria-hidden="true">
+					<use href="assets/svg/sprite.svg#i-idea"></use>
+				</svg>
+				<span class="toast__text">Олег предлагает вам обмен</span>
+				<button class="toast__close" type="button" aria-label="Скрыть" data-toast-close><svg class="icon" aria-hidden="true">
+						<use href="assets/svg/sprite.svg#i-cross"></use>
+					</svg></button>
+			</div>
+			<div class="toast toast--action">
+				<svg class="icon toast__icon" aria-hidden="true">
+					<use href="assets/svg/sprite.svg#i-idea"></use>
+				</svg>
+				<span class="toast__text">Татьяна предлагает вам обмен</span>
+				<button class="toast__close" type="button" aria-label="Скрыть" data-toast-close><svg class="icon" aria-hidden="true">
+						<use href="assets/svg/sprite.svg#i-cross"></use>
+					</svg></button>
+				<a class="btn toast__go" href="profile.html">Перейти</a>
 			</div>
 		</div>
 
