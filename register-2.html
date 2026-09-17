@@ -25,14 +25,6 @@
 						</svg></span>
 					SkillSwap
 				</a>
-				<div class="auth-header__step">
-					<p class="auth-header__title">Шаг 2 из 3</p>
-					<div class="steps">
-						<span class="steps__item is-done"></span>
-						<span class="steps__item is-done"></span>
-						<span class="steps__item"></span>
-					</div>
-				</div>
 				<a class="btn auth-header__close" href="home.html">
 					Закрыть
 					<svg class="icon" aria-hidden="true">
@@ -44,14 +36,24 @@
 
 		<main class="page__main">
 			<div class="container">
+				<div class="auth-intro">
+					<p class="auth-intro__title">Шаг 2 из 3</p>
+					<div class="steps">
+						<span class="steps__item is-done"></span>
+						<span class="steps__item is-done"></span>
+						<span class="steps__item"></span>
+					</div>
+				</div>
 
 				<div class="auth">
 
 					<section class="auth__panel">
 						<form class="auth__form" novalidate>
 							<p style="text-align:center">
-								<button class="btn-icon" type="button" aria-label="Загрузить фото профиля" style="width:56px;height:56px">
-									<svg class="icon icon--lg" aria-hidden="true"><use href="assets/svg/sprite.svg#i-user-circle"></use></svg>
+								<button class="avatar-upload" type="button" aria-label="Загрузить фото профиля">
+									<svg class="icon icon--lg" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-user"></use>
+									</svg>
 								</button>
 							</p>
 

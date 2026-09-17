@@ -216,6 +216,11 @@
     text-align: center;
   }
 }
+.auth__aside h1 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.26px;
+}
 .auth__aside img,
 .auth__aside svg {
   width: 300px;
@@ -225,29 +230,23 @@
 
 // Шапка входа и регистрации
 .auth-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   padding-block: 36px 0;
-  .logo { grid-row: 1; grid-column: 1; }
   &__close {
-    grid-row: 1;
-    grid-column: 2;
-    justify-self: end;
     background: var(--color-surface);
     color: var(--color-text);
     box-shadow: none;
     border-radius: var(--radius-md);
     &:hover { background: var(--color-accent-hover); }
   }
-  &__title,
-  &__step {
-    grid-row: 2;
-    grid-column: 1 / -1;
-    margin-top: 12px;
-    text-align: center;
-  }
+}
+
+.auth-intro {
+  margin-bottom: 24px;
+  text-align: center;
   &__title {
     font-family: var(--font-heading);
     font-weight: 500;
@@ -255,7 +254,6 @@
     line-height: 28px;
     letter-spacing: -0.26px;
   }
-  &__step &__title { margin-top: 0; }
 }
 
 .steps {
@@ -351,6 +349,9 @@
   .auth-header {
     gap: 12px;
     padding-block: 20px 0;
+  }
+  .auth-intro {
+    margin-bottom: 16px;
   }
   .steps__item { width: 40px; }
 

@@ -69,6 +69,29 @@
 		menu.addEventListener("click", (e) => {
 			const option = e.target.closest(".select__option");
 
+			if (option && option.querySelector("input")) {
+				e.stopPropagation();
+				const select = menu.closest(".select");
+				const toggle = select.querySelector(".select__toggle");
+				const value = toggle.querySelector(".select__value");
+				setTimeout(() => {
+					const checked = $$("input:checked", menu);
+					option.classList.toggle("is-selected", option.querySelector("input").checked);
+					if (!value) return;
+					if (!checked.length) {
+						value.textContent = value.dataset.placeholder || "Выберите";
+						value.classList.add("select__placeholder");
+					} else if (checked.length === 1) {
+						value.textContent = checked[0].closest(".check").querySelector(".check__text").textContent;
+						value.classList.remove("select__placeholder");
+					} else {
+						value.textContent = `Выбрано: ${checked.length}`;
+						value.classList.remove("select__placeholder");
+					}
+				}, 0);
+				return;
+			}
+
 			if (!option) return;
 			const select = menu.closest(".select");
 			const toggle = select.querySelector(".select__toggle");
@@ -95,11 +118,50 @@
 		});
 	});
 
+	/* --- Проверка формы входа --- */
+	$$("[data-login-form]").forEach((form) => {
+		const email = form.querySelector("#email");
+		const pass = form.querySelector("#password");
+		const error = form.querySelector("#login-error");
+		if (!email || !pass || !error) return;
+
+		const wrap = (input) => input.closest(".input-wrap");
+
+		const clear = () => {
+			error.hidden = true;
+			[email, pass].forEach((i) => {
+				wrap(i).classList.remove("is-error");
+				i.removeAttribute("aria-invalid");
+			});
+		};
+
+		const fail = () => {
+			error.hidden = false;
+			[email, pass].forEach((i) => {
+				wrap(i).classList.add("is-error");
+				i.setAttribute("aria-invalid", "true");
+			});
+			email.setAttribute("aria-describedby", "login-error");
+			pass.setAttribute("aria-describedby", "login-error");
+		};
+
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+			fail();
+		});
+
+		[email, pass].forEach((i) => i.addEventListener("input", clear));
+	});
+
 	/* --- Показ пароля --- */
 	$$("[data-password-toggle]").forEach((btn) => {
 		btn.addEventListener("click", () => {
 			const input = btn.closest(".input-wrap").querySelector("input");
-			input.type = input.type === "password" ? "text" : "password";
+			const shown = input.type === "text";
+			input.type = shown ? "password" : "text";
+			const use = btn.querySelector("use");
+			if (use) use.setAttribute("href", `assets/svg/sprite.svg#i-eye${shown ? "" : "-slash"}`);
+			btn.setAttribute("aria-label", shown ? "Показать пароль" : "Скрыть пароль");
 		});
 	});
 })();
