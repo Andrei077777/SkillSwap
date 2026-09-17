@@ -431,6 +431,10 @@ textarea.input {
   border-radius: 50%;
   object-fit: cover;
   background: var(--color-disabled);
+  &--sm {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 // Карточка пользователя (макет 386:7443)
@@ -492,6 +496,21 @@ textarea.input {
   }
 }
 
+// Бейдж на иконке
+.has-badge {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-error);
+  }
+}
+
 // Аватары-заглушки
 .avatar--ph {
   display: block;
@@ -506,6 +525,11 @@ textarea.input {
 .avatar--ph-7 { background: linear-gradient(140deg, #abd27a, #508826); }
 .avatar--ph-8 { background: linear-gradient(140deg, #d9b8ce, #a66e96); }
 .avatar--ph-9 { background: linear-gradient(140deg, #b6c6e3, #6f87b8); }
+
+// Заглушка фотографии в галерее
+.photo-ph {
+  background: linear-gradient(140deg, #cbd3c2, #8b9a7e);
+}
 
 // Дропзона загрузки фото
 .dropzone {

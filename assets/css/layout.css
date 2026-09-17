@@ -96,10 +96,29 @@
 }
 
 /* Группы в шапке */
+.header__icons {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
 .header__buttons {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+}
+.header__icons + .header__user {
+	margin-left: -8px;
+}
+
+.header__user {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding-left: 4px;
+	color: var(--color-text);
+}
+.header__user:hover {
+	text-decoration: none;
 }
 
 /* Футер */
@@ -305,11 +324,47 @@
 	background: var(--color-disabled);
 }
 
+/* Страница навыка (макет 619:23668) */
+.skill {
+	display: grid;
+	grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+	gap: 24px;
+	align-items: start;
+}
+.skill__author {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 24px;
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+}
+.skill__main {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 440px;
+	column-gap: 77px;
+	row-gap: 16px;
+	padding: 32px;
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+}
+.skill__info {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.skill__breadcrumb {
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.24px;
+	color: var(--color-caption);
+}
+
 /* АДАПТИВ */
 
 /* Планшет: 1024px и ниже */
 @media (max-width: 1023px) {
-	.catalog {
+	.catalog, .skill {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
@@ -345,6 +400,12 @@
 	.auth__panel {
 		min-height: 0;
 		padding: 40px;
+	}
+
+	/* Галерея: миниатюры в ряд */
+
+	.skill__main {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	/* Фильтры сворачиваются */
@@ -409,6 +470,9 @@
 	.header__actions {
 		gap: 12px;
 	}
+	.header__icons {
+		gap: 8px;
+	}
 	.header__buttons {
 		gap: 6px;
 	}
@@ -447,9 +511,19 @@
 		height: 32px;
 	}
 	/* Скрываем имя */
+	.header__user > span:not(.avatar) {
+		display: none;
+	}
+	.header__user {
+		padding-left: 0;
+	}
 
 	textarea.input {
 		min-height: 180px;
+	}
+
+	.skill__main {
+		padding: 20px;
 	}
 
 	h1 {
@@ -519,11 +593,18 @@
 		width: 20px;
 		height: 20px;
 	}
+	.header__user .avatar--sm {
+		width: 32px;
+		height: 32px;
+	}
 
 	/* Панели шапки */
 
 	.auth__panel {
 		padding: 20px;
+	}
+	.skill__main {
+		padding: 16px;
 	}
 	.filters {
 		padding: 16px;
