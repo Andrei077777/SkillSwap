@@ -106,6 +106,17 @@
 
 					<!-- Навык -->
 					<article class="skill__main">
+						<div class="skill__actions">
+							<button class="btn-icon" type="button" data-like aria-label="В избранное"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-like"></use>
+								</svg></button>
+							<button class="btn-icon" type="button" aria-label="Поделиться"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-share"></use>
+								</svg></button>
+							<button class="btn-icon" type="button" aria-label="Ещё"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-more-square"></use>
+								</svg></button>
+						</div>
 
 						<div class="skill__info">
 							<div>
@@ -113,19 +124,34 @@
 								<p class="skill__breadcrumb">Творчество и искусство / Музыка и звук</p>
 							</div>
 							<p>Привет! Я играю на барабанах уже больше 10 лет — от репетиций в гараже до выступлений на сцене с живыми группами. Научу основам техники (и как не отбить себе пальцы), играть любимые ритмы и разбирать песни, импровизировать и звучать уверенно даже без партитуры</p>
-							<button class="btn btn--primary btn--block" type="button">Предложить обмен</button>
+							<button class="btn btn--primary btn--block" type="button" data-modal-open="exchange-modal">Предложить обмен</button>
 						</div>
 
-						<span class="photo-ph" style="display:block;aspect-ratio:1;border-radius:var(--radius-md)"></span>
+						<div class="gallery" data-gallery>
+							<div class="gallery__main">
+								<span class="photo-ph" style="display:block;width:100%;height:100%"></span>
+								<button class="gallery__nav gallery__nav--prev" type="button" aria-label="Предыдущее фото"><svg class="icon icon--sm" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-chevron-left"></use>
+									</svg></button>
+								<button class="gallery__nav gallery__nav--next" type="button" aria-label="Следующее фото"><svg class="icon icon--sm" aria-hidden="true">
+										<use href="assets/svg/sprite.svg#i-chevron-right"></use>
+									</svg></button>
+							</div>
+							<div class="gallery__thumbs">
+								<button class="gallery__thumb" type="button" aria-label="Фото 2"><span class="photo-ph photo-ph--2" style="display:block;width:100%;height:100%"></span></button>
+								<button class="gallery__thumb" type="button" aria-label="Фото 3"><span class="photo-ph photo-ph--3" style="display:block;width:100%;height:100%"></span></button>
+								<button class="gallery__thumb gallery__thumb--more" type="button" data-more="+3" aria-label="Ещё 3 фото"><span class="photo-ph" style="display:block;width:100%;height:100%"></span></button>
+							</div>
+						</div>
 					</article>
 				</div>
 
 				<!-- Похожие -->
-				<section class="section">
+				<section class="section section--sub" style="margin-top:40px">
 					<div class="section__head">
 						<h2>Похожие предложения</h2>
 					</div>
-					<div class="cards-grid">
+					<div class="cards-grid cards-grid--4">
 						<article class="card">
 							<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
 									<use href="assets/svg/sprite.svg#i-like"></use>
@@ -170,6 +196,49 @@
 							<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
 						</article>
 
+						<article class="card">
+							<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-like"></use>
+								</svg></button>
+							<div class="card__head">
+								<span class="avatar avatar--ph avatar--ph-6"></span>
+								<div>
+									<p class="card__name">Мария</p>
+									<p class="card__meta">Краснодар, 21 год</p>
+								</div>
+							</div>
+							<div class="card__section">
+								<p class="card__section-title">Может научить:</p>
+								<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+							</div>
+							<div class="card__section">
+								<p class="card__section-title">Хочет научиться:</p>
+								<div class="tag-list"><span class="tag tag--education">Тайм менеджмент</span><span class="tag tag--health">Медитация</span><span class="tag tag--more">+2</span></div>
+							</div>
+							<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+						</article>
+
+						<article class="card">
+							<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-like"></use>
+								</svg></button>
+							<div class="card__head">
+								<span class="avatar avatar--ph avatar--ph-9"></span>
+								<div>
+									<p class="card__name">Виктория</p>
+									<p class="card__meta">Кемерово, 30 лет</p>
+								</div>
+							</div>
+							<div class="card__section">
+								<p class="card__section-title">Может научить:</p>
+								<div class="tag-list"><span class="tag tag--languages">Английский язык</span></div>
+							</div>
+							<div class="card__section">
+								<p class="card__section-title">Хочет научиться:</p>
+								<div class="tag-list"><span class="tag tag--education">Тайм менеджмент</span><span class="tag tag--health">Медитация</span><span class="tag tag--more">+2</span></div>
+							</div>
+							<a class="btn btn--primary btn--block" href="skill.html">Подробнее</a>
+						</article>
 					</div>
 				</section>
 
@@ -194,6 +263,20 @@
 				<p class="footer__copy caption">SkillSwap — 2025</p>
 			</div>
 		</footer>
+
+		<!-- Подтверждение обмена -->
+		<div class="modal-backdrop" id="exchange-modal" hidden>
+			<div class="modal modal--sm" role="dialog" aria-modal="true" aria-labelledby="exchange-title">
+				<span class="modal__icon"><svg class="icon" aria-hidden="true">
+						<use href="assets/svg/sprite.svg#i-done"></use>
+					</svg></span>
+				<h2 class="modal__title" id="exchange-title">Ваше предложение создано</h2>
+				<p class="modal__subtitle">Теперь вы можете предложить обмен</p>
+				<div class="modal__actions modal__actions--single">
+					<button class="btn btn--primary" type="button" data-modal-close>Готово</button>
+				</div>
+			</div>
+		</div>
 
 	</div>
 	<script src="assets/js/main.js"></script>

@@ -580,6 +580,41 @@ textarea.input {
 	background: var(--color-error);
 }
 
+/* Модальное окно */
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: rgba(37, 48, 23, 0.28);
+}
+.modal-backdrop[hidden] {
+	display: none;
+}
+.modal {
+	width: 100%;
+	max-width: 1024px;
+	max-height: 90vh;
+	overflow-y: auto;
+	padding: 44px 60px 72px;
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+}
+.modal__title {
+	text-align: center;
+}
+.modal__subtitle {
+	margin-top: 4px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.24px;
+	color: var(--color-caption);
+}
+
 /* Аватары-заглушки */
 .avatar--ph {
 	display: block;
@@ -616,6 +651,12 @@ textarea.input {
 /* Заглушка фотографии в галерее */
 .photo-ph {
 	background: linear-gradient(140deg, #cbd3c2, #8b9a7e);
+}
+.photo-ph--2 {
+	background: linear-gradient(140deg, #e3d3b8, #b39a6e);
+}
+.photo-ph--3 {
+	background: linear-gradient(140deg, #e5c8be, #be8878);
 }
 
 /* Дропзона загрузки фото */
@@ -668,4 +709,61 @@ textarea.input {
 	height: 16px;
 	border-radius: 50%;
 	background: var(--color-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M5 2v6M2 5h6'/%3E%3C/svg%3E") center / 10px no-repeat;
+}
+
+/* Компактная модалка-подтверждение */
+.modal--sm {
+	width: 556px;
+	max-width: 100%;
+	padding: 60px;
+	text-align: center;
+}
+.modal--sm .modal__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 76px;
+	height: 76px;
+	margin-bottom: 40px;
+	color: var(--color-text);
+}
+.modal--sm .modal__icon .icon {
+	width: 76px;
+	height: 76px;
+}
+.modal--sm .modal__subtitle {
+	margin-top: 12px;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.32px;
+}
+.modal--sm .modal__actions {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+	margin-top: 40px;
+}
+
+@media (max-width: 480px) {
+	.modal--sm {
+		padding: 24px;
+	}
+	.modal--sm .modal__icon {
+		width: 56px;
+		height: 56px;
+		margin-bottom: 24px;
+	}
+	.modal--sm .modal__icon .icon {
+		width: 56px;
+		height: 56px;
+	}
+	.modal--sm .modal__actions {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+		margin-top: 24px;
+	}
+}
+
+.modal__actions--single {
+	grid-template-columns: minmax(0, 1fr);
 }

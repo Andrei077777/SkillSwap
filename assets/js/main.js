@@ -109,7 +109,7 @@
 	document.addEventListener("click", () => closeAllSelects(null));
 
 	/* --- Лайки --- */
-	$$(".card__like").forEach((btn) => {
+	$$(".card__like, [data-like]").forEach((btn) => {
 		btn.addEventListener("click", () => {
 			const active = btn.classList.toggle("is-active");
 			const use = btn.querySelector("use");
@@ -153,6 +153,27 @@
 		[email, pass].forEach((i) => i.addEventListener("input", clear));
 	});
 
+	/* --- Модалки --- */
+	$$("[data-modal-open]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const modal = document.getElementById(btn.dataset.modalOpen);
+			if (modal) modal.hidden = false;
+		});
+	});
+
+	$$("[data-modal-close]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const modal = btn.closest(".modal-backdrop");
+			if (modal) modal.hidden = true;
+		});
+	});
+
+	$$(".modal-backdrop").forEach((backdrop) => {
+		backdrop.addEventListener("click", (e) => {
+			if (e.target === backdrop) backdrop.hidden = true;
+		});
+	});
+
 	/* --- Показ пароля --- */
 	$$("[data-password-toggle]").forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -162,6 +183,33 @@
 			const use = btn.querySelector("use");
 			if (use) use.setAttribute("href", `assets/svg/sprite.svg#i-eye${shown ? "" : "-slash"}`);
 			btn.setAttribute("aria-label", shown ? "Показать пароль" : "Скрыть пароль");
+		});
+	});
+
+	/* --- Галерея --- */
+	$$("[data-gallery]").forEach((gallery) => {
+		const main = gallery.querySelector(".gallery__main > img, .gallery__main > .photo-ph");
+		$$(".gallery__thumb", gallery).forEach((thumb) => {
+			thumb.addEventListener("click", () => {
+				if (!main) return;
+				const thumbImg = thumb.querySelector("img");
+				if (thumbImg && main.tagName === "IMG") {
+					const prev = main.src;
+					main.src = thumbImg.src;
+					thumbImg.src = prev;
+				} else {
+					// заглушки: меняем классы-градиенты местами
+					const inner = thumb.firstElementChild || thumb;
+					const a = [...main.classList].find((c) => c.startsWith("photo-ph--"));
+					const b = [...inner.classList].find((c) => c.startsWith("photo-ph--"));
+					if (a) main.classList.remove(a);
+					if (b) {
+						inner.classList.remove(b);
+						main.classList.add(b);
+					}
+					if (a) inner.classList.add(a);
+				}
+			});
 		});
 	});
 })();
