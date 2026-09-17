@@ -186,6 +186,126 @@
 		});
 	});
 
+	/* --- Календарь --- */
+	const MONTHS = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+	const DOW = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+	const pad = (n) => String(n).padStart(2, "0");
+
+	const parseDate = (str) => {
+		const m = /^(\d{2})\.(\d{2})\.(\d{4})$/.exec((str || "").trim());
+		if (!m) return null;
+		const [, d, mo, y] = m.map(Number);
+		const date = new Date(y, mo - 1, d);
+		return date.getDate() === d && date.getMonth() === mo - 1 ? date : null;
+	};
+
+	$$("[data-datepicker]").forEach((wrap) => {
+		const input = wrap.querySelector("input");
+		const toggle = wrap.querySelector("[data-calendar-toggle]");
+		if (!input || !toggle) return;
+
+		const cal = document.createElement("div");
+		cal.className = "calendar";
+		cal.hidden = true;
+		wrap.appendChild(cal);
+
+		const thisYear = new Date().getFullYear();
+		const years = [];
+		for (let y = thisYear - 14; y >= thisYear - 100; y--) years.push(y);
+
+		let view = parseDate(input.value) || new Date(thisYear - 25, 0, 1);
+		let picked = parseDate(input.value);
+
+		const render = () => {
+			const year = view.getFullYear();
+			const month = view.getMonth();
+			const first = new Date(year, month, 1);
+			const shift = (first.getDay() + 6) % 7;
+			const start = new Date(year, month, 1 - shift);
+
+			const cells = [];
+			for (let i = 0; i < 42; i++) {
+				const day = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+				const muted = day.getMonth() !== month;
+				const sel = picked && day.toDateString() === picked.toDateString();
+				cells.push(`<button type="button" class="calendar__day${muted ? " is-muted" : ""}${sel ? " is-selected" : ""}" ` + `data-date="${pad(day.getDate())}.${pad(day.getMonth() + 1)}.${day.getFullYear()}">${day.getDate()}</button>`);
+			}
+
+			cal.innerHTML =
+				'<div class="calendar__head">' +
+				'<span class="calendar__nav"><select data-month aria-label="Месяц">' +
+				MONTHS.map((m, i) => `<option value="${i}"${i === month ? " selected" : ""}>${m}</option>`).join("") +
+				'</select><svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
+				'<span class="calendar__nav"><select data-year aria-label="Год">' +
+				years.map((y) => `<option value="${y}"${y === year ? " selected" : ""}>${y}</option>`).join("") +
+				'</select><svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
+				"</div>" +
+				'<div class="calendar__grid">' +
+				DOW.map((d) => `<span class="calendar__dow">${d}</span>`).join("") +
+				cells.join("") +
+				"</div>" +
+				'<div class="calendar__actions">' +
+				'<button class="btn btn--secondary" type="button" data-cal-cancel>Отменить</button>' +
+				'<button class="btn btn--primary" type="button" data-cal-apply>Выбрать</button>' +
+				"</div>";
+		};
+
+		const open = () => {
+			render();
+			cal.hidden = false;
+			toggle.setAttribute("aria-expanded", "true");
+		};
+		const close = () => {
+			cal.hidden = true;
+			toggle.setAttribute("aria-expanded", "false");
+		};
+
+		toggle.addEventListener("click", (e) => {
+			e.stopPropagation();
+			cal.hidden ? open() : close();
+		});
+
+		cal.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const day = e.target.closest(".calendar__day");
+			if (day) {
+				picked = parseDate(day.dataset.date);
+				view = new Date(picked);
+				render();
+				return;
+			}
+			if (e.target.closest("[data-cal-cancel]")) {
+				close();
+				return;
+			}
+			if (e.target.closest("[data-cal-apply]")) {
+				if (picked) input.value = `${pad(picked.getDate())}.${pad(picked.getMonth() + 1)}.${picked.getFullYear()}`;
+				close();
+			}
+		});
+
+		cal.addEventListener("change", (e) => {
+			const month = cal.querySelector("[data-month]");
+			const year = cal.querySelector("[data-year]");
+			if (e.target === month || e.target === year) {
+				view = new Date(Number(year.value), Number(month.value), 1);
+				render();
+			}
+		});
+
+		input.addEventListener("change", () => {
+			const d = parseDate(input.value);
+			if (d) {
+				picked = d;
+				view = new Date(d);
+			}
+		});
+
+		document.addEventListener("click", () => {
+			if (!cal.hidden) close();
+		});
+	});
+
 	/* --- Галерея --- */
 	$$("[data-gallery]").forEach((gallery) => {
 		const main = gallery.querySelector(".gallery__main > img, .gallery__main > .photo-ph");

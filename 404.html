@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Страница не найдена — SkillSwap</title>
+	<link rel="icon" href="assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+</head>
+
+<body>
+	<div class="page">
+
+		<header class="header">
+			<div class="container header__inner">
+				<a class="logo" href="catalog.html">
+					<span class="logo__mark"><svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+						</svg></span>
+					SkillSwap
+				</a>
+
+				<nav class="header__nav">
+					<a href="#">О проекте</a>
+					<button class="header__nav-toggle" type="button" aria-expanded="false">
+						Все навыки
+						<svg class="icon icon--sm" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+						</svg>
+					</button>
+				</nav>
+
+				<form class="header__search" role="search">
+					<label class="visually-hidden" for="search">Искать навык</label>
+					<div class="input-wrap search">
+						<span class="input-wrap__icon-left"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-search"></use>
+							</svg></span>
+						<input class="input" id="search" type="search" placeholder="Искать навык">
+					</div>
+				</form>
+
+				<div class="header__actions">
+					<div class="header__icons">
+						<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-moon"></use>
+							</svg>
+						</button>
+						<button class="btn-icon has-badge" type="button" aria-label="Уведомления">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-notification"></use>
+							</svg>
+						</button>
+						<a class="btn-icon" href="#" aria-label="Избранное">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-like"></use>
+							</svg>
+						</a>
+					</div>
+					<button class="header__user" type="button">
+						<span>Мария</span>
+						<span class="avatar avatar--sm avatar--ph avatar--ph-7"></span>
+					</button>
+
+				</div>
+
+			</div>
+		</header>
+
+		<main class="page__main">
+			<div class="container">
+				<section class="error-page">
+					<img class="error-page__art" src="assets/svg/error-404.svg" alt="" width="374" height="297">
+					<div class="error-page__text">
+						<h1>Страница не найдена</h1>
+						<p>К сожалению, эта страница недоступна. Вернитесь на главную страницу или попробуйте позже</p>
+					</div>
+					<div class="error-page__actions">
+						<button class="btn btn--secondary" type="button">Сообщить об ошибке</button>
+						<a class="btn btn--primary" href="catalog.html">На главную</a>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__inner">
+					<div class="footer__col">
+						<a class="logo" href="catalog.html">
+							<span class="logo__mark"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+								</svg></span>
+							SkillSwap
+						</a>
+					</div>
+					<nav class="footer__col"><a href="#">О проекте</a><a href="catalog-filtered.html">Все навыки</a></nav>
+					<nav class="footer__col"><a href="#">Контакты</a><a href="#">Блог</a></nav>
+					<nav class="footer__col"><a href="#">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav>
+				</div>
+				<p class="footer__copy caption">SkillSwap — 2025</p>
+			</div>
+		</footer>
+
+	</div>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

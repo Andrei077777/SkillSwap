@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Личные данные — SkillSwap</title>
+	<link rel="icon" href="assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+</head>
+
+<body>
+	<div class="page">
+
+		<header class="header">
+			<div class="container header__inner">
+				<a class="logo" href="catalog.html">
+					<span class="logo__mark"><svg class="icon" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+						</svg></span>
+					SkillSwap
+				</a>
+
+				<nav class="header__nav">
+					<a href="#">О проекте</a>
+					<button class="header__nav-toggle" type="button" aria-expanded="false">
+						Все навыки
+						<svg class="icon icon--sm" aria-hidden="true">
+							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+						</svg>
+					</button>
+				</nav>
+
+				<form class="header__search" role="search">
+					<label class="visually-hidden" for="search">Искать навык</label>
+					<div class="input-wrap search">
+						<span class="input-wrap__icon-left"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-search"></use>
+							</svg></span>
+						<input class="input" id="search" type="search" placeholder="Искать навык">
+					</div>
+				</form>
+
+				<div class="header__actions">
+					<div class="header__icons">
+						<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-moon"></use>
+							</svg>
+						</button>
+						<button class="btn-icon has-badge" type="button" aria-label="Уведомления">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-notification"></use>
+							</svg>
+						</button>
+						<a class="btn-icon" href="#" aria-label="Избранное">
+							<svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-like"></use>
+							</svg>
+						</a>
+					</div>
+					<button class="header__user" type="button">
+						<span>Мария</span>
+						<span class="avatar avatar--sm avatar--ph avatar--ph-7"></span>
+					</button>
+
+				</div>
+
+			</div>
+		</header>
+
+		<main class="page__main">
+			<div class="container">
+				<h1 class="visually-hidden">Личные данные</h1>
+
+				<div class="profile">
+					<nav class="profile__nav">
+						<a class="profile__nav-item" href="#"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-request"></use>
+							</svg>Заявки</a>
+						<a class="profile__nav-item" href="#"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-message-text"></use>
+							</svg>Мои обмены</a>
+						<a class="profile__nav-item" href="#"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-like"></use>
+							</svg>Избранное</a>
+						<a class="profile__nav-item" href="#"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-idea"></use>
+							</svg>Мои навыки</a>
+						<a class="profile__nav-item is-active" href="profile.html" aria-current="page"><svg class="icon" aria-hidden="true">
+								<use href="assets/svg/sprite.svg#i-user"></use>
+							</svg>Личные данные</a>
+					</nav>
+
+					<div class="profile__body">
+						<form class="profile__form" novalidate>
+							<div class="field">
+								<label class="field__label" for="mail">Почта</label>
+								<div class="input-wrap">
+									<input class="input" id="mail" type="email" value="mariia@gmail.com" autocomplete="email">
+									<button class="input-wrap__action" type="button" aria-label="Изменить почту"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-edit"></use>
+										</svg></button>
+								</div>
+							</div>
+
+							<p><a href="#"><strong>Изменить пароль</strong></a></p>
+
+							<div class="field">
+								<label class="field__label" for="username">Имя</label>
+								<div class="input-wrap">
+									<input class="input" id="username" type="text" value="Мария" autocomplete="given-name">
+									<button class="input-wrap__action" type="button" aria-label="Изменить имя"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-edit"></use>
+										</svg></button>
+								</div>
+							</div>
+
+							<div class="field-row">
+								<div class="field">
+									<label class="field__label" for="bday">Дата рождения</label>
+									<div class="input-wrap" data-datepicker>
+										<input class="input" id="bday" type="text" value="28.10.1995" inputmode="numeric">
+										<button class="input-wrap__action" type="button" data-calendar-toggle aria-expanded="false" aria-label="Открыть календарь"><svg class="icon" aria-hidden="true">
+												<use href="assets/svg/sprite.svg#i-calendar"></use>
+											</svg></button>
+									</div>
+								</div>
+
+								<div class="field">
+									<span class="field__label" id="sex-label">Пол</span>
+									<div class="select">
+										<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="sex-label">
+											<span class="select__value">Женский</span>
+											<svg class="icon" aria-hidden="true">
+												<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+											</svg>
+										</button>
+										<div class="select__menu">
+											<button class="select__option" type="button">Не указан</button>
+											<button class="select__option" type="button">Мужской</button>
+											<button class="select__option is-selected" type="button">Женский</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="field__label" id="town-label">Город</span>
+								<div class="select">
+									<button class="select__toggle" type="button" aria-expanded="false" aria-labelledby="town-label">
+										<span class="select__value">Москва</span>
+										<svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+									<div class="select__menu">
+										<button class="select__option is-selected" type="button">Москва</button>
+										<button class="select__option" type="button">Санкт-Петербург</button>
+										<button class="select__option" type="button">Новосибирск</button>
+										<button class="select__option" type="button">Екатеринбург</button>
+										<button class="select__option" type="button">Казань</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="field">
+								<label class="field__label" for="about">О себе</label>
+								<div class="input-wrap">
+									<textarea class="input" id="about">Люблю учиться новому, особенно если это можно делать за чаем и в пижаме. Всегда готова пообщаться и обменяться чем-то интересным!</textarea>
+									<button class="input-wrap__action" type="button" aria-label="Изменить описание"><svg class="icon" aria-hidden="true">
+											<use href="assets/svg/sprite.svg#i-edit"></use>
+										</svg></button>
+								</div>
+							</div>
+
+							<button class="btn btn--primary btn--block" type="submit" disabled>Сохранить</button>
+						</form>
+
+						<div class="profile__avatar">
+							<span class="avatar avatar--lg avatar--ph avatar--ph-7"></span>
+							<button class="profile__avatar-edit" type="button" aria-label="Изменить фото">
+								<svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-gallery-edit"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__inner">
+					<div class="footer__col">
+						<a class="logo" href="catalog.html">
+							<span class="logo__mark"><svg class="icon" aria-hidden="true">
+									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+								</svg></span>
+							SkillSwap
+						</a>
+					</div>
+					<nav class="footer__col"><a href="#">О проекте</a><a href="catalog-filtered.html">Все навыки</a></nav>
+					<nav class="footer__col"><a href="#">Контакты</a><a href="#">Блог</a></nav>
+					<nav class="footer__col"><a href="#">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav>
+				</div>
+				<p class="footer__copy caption">SkillSwap — 2025</p>
+			</div>
+		</footer>
+
+	</div>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

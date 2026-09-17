@@ -67,9 +67,11 @@
 							<div class="field-row">
 								<div class="field">
 									<label class="field__label" for="birthday">Дата рождения</label>
-									<div class="input-wrap">
+									<div class="input-wrap" data-datepicker>
 										<input class="input" id="birthday" type="text" placeholder="дд.мм.гггг" inputmode="numeric">
-										<span class="input-wrap__action" aria-hidden="true"><svg class="icon"><use href="assets/svg/sprite.svg#i-calendar"></use></svg></span>
+										<button class="input-wrap__action" type="button" data-calendar-toggle aria-expanded="false" aria-label="Открыть календарь"><svg class="icon" aria-hidden="true">
+												<use href="assets/svg/sprite.svg#i-calendar"></use>
+											</svg></button>
 									</div>
 								</div>
 

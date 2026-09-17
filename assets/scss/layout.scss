@@ -308,6 +308,66 @@
   background: var(--color-disabled);
 }
 
+// Профиль
+.profile {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  gap: 24px;
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 40px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+  }
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    &:hover {
+      background: var(--color-accent-hover);
+      text-decoration: none;
+    }
+    &.is-active { background: var(--color-accent-hover); }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 40px;
+    padding: 60px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 460px;
+  }
+  &__avatar {
+    position: relative;
+    align-self: start;
+  }
+  &__avatar-edit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-accent-hover);
+    color: var(--color-text);
+  }
+}
+
 // Страница навыка (макет 619:23668)
 .skill {
   display: grid;
@@ -409,11 +469,46 @@
   font-size: 16px;
 }
 
+// Страницы ошибок
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-block: 80px;
+  text-align: center;
+  &__art {
+    width: 374px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+.error-page h1 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.26px;
+}
+.error-page__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+}
+.error-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.error-page__actions .btn { min-width: 218px; }
+
 // АДАПТИВ
 
 // Планшет: 1024px и ниже
 @media (max-width: 1023px) {
-  .catalog, .skill { grid-template-columns: minmax(0, 1fr); }
+  .catalog,
+  .profile,
+  .skill { grid-template-columns: minmax(0, 1fr); }
 
   .cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -456,6 +551,20 @@
   }
 
   .skill__main { grid-template-columns: minmax(0, 1fr); }
+  .profile__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 32px;
+  }
+  .profile__nav { padding: 24px; }
+  .profile__avatar {
+    order: -1;
+    justify-self: center;
+  }
+  .avatar--lg {
+    width: 180px;
+    height: 180px;
+  }
 
   // Фильтры сворачиваются
   .filters__mobile-toggle {
@@ -529,6 +638,12 @@
     gap: 20px;
   }
 
+  .error-page__actions { gap: 16px; }
+  .error-page__actions .btn {
+    min-width: 0;
+    width: 100%;
+  }
+
   .logo {
     font-size: 20px;
     &__mark {
@@ -543,10 +658,15 @@
   .gallery__main { max-height: none; }
   textarea.input { min-height: 180px; }
 
-  .skill__main { padding: 20px; }
+  .skill__main,
+  .profile__body { padding: 20px; }
 
   .modal {
     padding: 20px;
+  }
+  .error-page {
+    padding-block: 40px;
+    &__art { width: 240px; }
   }
 
   h1 {
@@ -619,7 +739,9 @@
   .modal {
     padding: 16px;
   }
+  .profile__body,
   .skill__main { padding: 16px; }
+  .profile__nav { padding: 16px; }
   .filters {
     padding: 16px;
   }
