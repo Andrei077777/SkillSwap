@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Ошибка сервера — SkillSwap</title>
-	<link rel="icon" href="assets/favicon.ico" sizes="any">
-	<link rel="icon" type="image/png" href="assets/favicon.png">
-	<link rel="stylesheet" href="assets/css/fonts.css">
-	<link rel="stylesheet" href="assets/css/globals.css">
-	<link rel="stylesheet" href="assets/css/base.css">
-	<link rel="stylesheet" href="assets/css/components.css">
-	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="icon" href="/assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/assets/favicon.png">
+	<link rel="stylesheet" href="/assets/css/fonts.css">
+	<link rel="stylesheet" href="/assets/css/globals.css">
+	<link rel="stylesheet" href="/assets/css/base.css">
+	<link rel="stylesheet" href="/assets/css/components.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
 </head>
 
 <body>
@@ -19,19 +19,19 @@
 
 		<header class="header">
 			<div class="container header__inner">
-				<a class="logo" href="catalog.html">
+				<a class="logo" href="/catalog.html">
 					<span class="logo__mark"><svg class="icon" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+							<use href="/assets/svg/sprite.svg#i-logo-mark"></use>
 						</svg></span>
 					SkillSwap
 				</a>
 
 				<nav class="header__nav">
 					<a href="#">О проекте</a>
-					<button class="header__nav-toggle" type="button" aria-expanded="false">
+					<button class="header__nav-toggle" type="button" data-popover-toggle aria-controls="skills-menu" aria-expanded="false">
 						Все навыки
 						<svg class="icon icon--sm" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+							<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
 						</svg>
 					</button>
 				</nav>
@@ -40,12 +40,12 @@
 					<label class="visually-hidden" for="search">Искать навык</label>
 					<div class="input-wrap search">
 						<span class="input-wrap__icon-left"><svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-search"></use>
+								<use href="/assets/svg/sprite.svg#i-search"></use>
 							</svg></span>
 						<input class="input" id="search" type="search" placeholder="Искать навык">
 						<button class="input-wrap__action" type="button" data-search-clear aria-label="Очистить" hidden>
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-cross"></use>
+								<use href="/assets/svg/sprite.svg#i-cross"></use>
 							</svg>
 						</button>
 					</div>
@@ -55,17 +55,17 @@
 					<div class="header__icons">
 						<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-moon"></use>
+								<use href="/assets/svg/sprite.svg#i-moon"></use>
 							</svg>
 						</button>
 						<button class="btn-icon has-badge" type="button" data-popover-toggle aria-controls="notifications" aria-expanded="false" aria-label="Уведомления">
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-notification"></use>
+								<use href="/assets/svg/sprite.svg#i-notification"></use>
 							</svg>
 						</button>
 						<a class="btn-icon" href="#" aria-label="Избранное">
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-like"></use>
+								<use href="/assets/svg/sprite.svg#i-like"></use>
 							</svg>
 						</a>
 					</div>
@@ -83,25 +83,25 @@
 							<ul class="notifications__list">
 								<li class="notif">
 									<svg class="icon notif__icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-idea"></use>
+										<use href="/assets/svg/sprite.svg#i-idea"></use>
 									</svg>
 									<div>
 										<p class="notif__title">Николай принял ваш обмен</p>
 										<p class="notif__text">Перейдите в профиль, чтобы обсудить детали</p>
 									</div>
 									<span class="notif__date">сегодня</span>
-									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+									<a class="btn btn--primary notif__go" href="/profile.html">Перейти</a>
 								</li>
 								<li class="notif">
 									<svg class="icon notif__icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-idea"></use>
+										<use href="/assets/svg/sprite.svg#i-idea"></use>
 									</svg>
 									<div>
 										<p class="notif__title">Татьяна предлагает вам обмен</p>
 										<p class="notif__text">Примите обмен, чтобы обсудить детали</p>
 									</div>
 									<span class="notif__date">сегодня</span>
-									<a class="btn btn--primary notif__go" href="profile.html">Перейти</a>
+									<a class="btn btn--primary notif__go" href="/profile.html">Перейти</a>
 								</li>
 							</ul>
 						</section>
@@ -114,7 +114,7 @@
 							<ul class="notifications__list">
 								<li class="notif notif--seen">
 									<svg class="icon notif__icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-idea"></use>
+										<use href="/assets/svg/sprite.svg#i-idea"></use>
 									</svg>
 									<div>
 										<p class="notif__title">Олег предлагает вам обмен</p>
@@ -124,7 +124,7 @@
 								</li>
 								<li class="notif notif--seen">
 									<svg class="icon notif__icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-idea"></use>
+										<use href="/assets/svg/sprite.svg#i-idea"></use>
 									</svg>
 									<div>
 										<p class="notif__title">Игорь принял ваш обмен</p>
@@ -137,30 +137,144 @@
 					</div>
 
 					<div class="header__popover header__popover--menu" id="profile-menu" hidden>
-						<a class="header__popover-item" href="profile.html">Личный кабинет</a>
-						<a class="header__popover-item" href="home.html">
+						<a class="header__popover-item" href="/profile.html">Личный кабинет</a>
+						<a class="header__popover-item" href="/home.html">
 							Выйти из аккаунта
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-logout"></use>
+								<use href="/assets/svg/sprite.svg#i-logout"></use>
 							</svg>
 						</a>
 					</div>
 				</div>
 
+				<div class="header__mega" id="skills-menu" hidden>
+					<div class="mega__grid">
+						<div class="mega__col">
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--business"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-briefcase"></use>
+										</svg></span>
+									Бизнес и карьера
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Управление командой</a></li>
+									<li><a href="/catalog-filtered.html">Маркетинг и реклама</a></li>
+									<li><a href="/catalog-filtered.html">Продажи и переговоры</a></li>
+									<li><a href="/catalog-filtered.html">Личный бренд</a></li>
+									<li><a href="/catalog-filtered.html">Резюме и собеседование</a></li>
+									<li><a href="/catalog-filtered.html">Тайм-менеджмент</a></li>
+									<li><a href="/catalog-filtered.html">Проектное управление</a></li>
+									<li><a href="/catalog-filtered.html">Предпринимательство</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--languages"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-global"></use>
+										</svg></span>
+									Иностранные языки
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Английский</a></li>
+									<li><a href="/catalog-filtered.html">Французский</a></li>
+									<li><a href="/catalog-filtered.html">Испанский</a></li>
+									<li><a href="/catalog-filtered.html">Немецкий</a></li>
+									<li><a href="/catalog-filtered.html">Китайский</a></li>
+									<li><a href="/catalog-filtered.html">Японский</a></li>
+									<li><a href="/catalog-filtered.html">Подготовка к экзаменам (IELTS, TOEFL)</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--home"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-home"></use>
+										</svg></span>
+									Дом и уют
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Уборка и организация</a></li>
+									<li><a href="/catalog-filtered.html">Домашние финансы</a></li>
+									<li><a href="/catalog-filtered.html">Приготовление еды</a></li>
+									<li><a href="/catalog-filtered.html">Домашние растения</a></li>
+									<li><a href="/catalog-filtered.html">Ремонт</a></li>
+									<li><a href="/catalog-filtered.html">Хранение вещей</a></li>
+								</ul>
+							</section>
+						</div>
+						<div class="mega__col">
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--creative"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-palette"></use>
+										</svg></span>
+									Творчество и искусство
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Рисование и иллюстрация</a></li>
+									<li><a href="/catalog-filtered.html">Фотография</a></li>
+									<li><a href="/catalog-filtered.html">Видеомонтаж</a></li>
+									<li><a href="/catalog-filtered.html">Музыка и звук</a></li>
+									<li><a href="/catalog-filtered.html">Актёрское мастерство</a></li>
+									<li><a href="/catalog-filtered.html">Креативное письмо</a></li>
+									<li><a href="/catalog-filtered.html">Арт-терапия</a></li>
+									<li><a href="/catalog-filtered.html">Декор и DIY</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--education"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-book"></use>
+										</svg></span>
+									Образование и развитие
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Личностное развитие</a></li>
+									<li><a href="/catalog-filtered.html">Навыки обучения</a></li>
+									<li><a href="/catalog-filtered.html">Когнитивные техники</a></li>
+									<li><a href="/catalog-filtered.html">Скорочтение</a></li>
+									<li><a href="/catalog-filtered.html">Навыки преподавания</a></li>
+									<li><a href="/catalog-filtered.html">Коучинг</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--health"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-lifestyle"></use>
+										</svg></span>
+									Здоровье и лайфстайл
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Йога и медитация</a></li>
+									<li><a href="/catalog-filtered.html">Питание и ЗОЖ</a></li>
+									<li><a href="/catalog-filtered.html">Ментальное здоровье</a></li>
+									<li><a href="/catalog-filtered.html">Осознанность</a></li>
+									<li><a href="/catalog-filtered.html">Физические тренировки</a></li>
+									<li><a href="/catalog-filtered.html">Сон и восстановление</a></li>
+									<li><a href="/catalog-filtered.html">Баланс жизни и работы</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
 			</div>
 		</header>
 
 		<main class="page__main">
 			<div class="container">
 				<section class="error-page">
-					<img class="error-page__art" src="assets/svg/error-500.svg" alt="" width="374" height="297">
+					<img class="error-page__art" src="/assets/svg/error-500.svg" alt="" width="374" height="297">
 					<div class="error-page__text">
 						<h1>На сервере произошла ошибка</h1>
 						<p>Попробуйте позже или вернитесь на главную страницу</p>
 					</div>
 					<div class="error-page__actions">
 						<button class="btn btn--secondary" type="button">Сообщить об ошибке</button>
-						<a class="btn btn--primary" href="catalog.html">На главную</a>
+						<a class="btn btn--primary" href="/catalog.html">На главную</a>
 					</div>
 				</section>
 			</div>
@@ -170,14 +284,14 @@
 			<div class="container">
 				<div class="footer__inner">
 					<div class="footer__col">
-						<a class="logo" href="catalog.html">
+						<a class="logo" href="/catalog.html">
 							<span class="logo__mark"><svg class="icon" aria-hidden="true">
-									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+									<use href="/assets/svg/sprite.svg#i-logo-mark"></use>
 								</svg></span>
 							SkillSwap
 						</a>
 					</div>
-					<nav class="footer__col"><a href="#">О проекте</a><a href="catalog-filtered.html">Все навыки</a></nav>
+					<nav class="footer__col"><a href="#">О проекте</a><a href="/catalog-filtered.html">Все навыки</a></nav>
 					<nav class="footer__col"><a href="#">Контакты</a><a href="#">Блог</a></nav>
 					<nav class="footer__col"><a href="#">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav>
 				</div>
@@ -186,7 +300,7 @@
 		</footer>
 
 	</div>
-	<script src="assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 </body>
 
 </html>

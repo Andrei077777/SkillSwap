@@ -51,7 +51,7 @@
     &:hover { background: var(--color-accent-hover); }
     &:active {
       background: var(--color-accent-pressed);
-      color: var(--color-text);
+      color: var(--color-on-pressed);
     }
   }
 }
@@ -224,7 +224,7 @@ textarea.input {
   border-radius: var(--radius-sm);
 }
 
-// Селект / дропдаун
+// Селект
 .select {
   position: relative;
   &__toggle {
@@ -332,6 +332,14 @@ textarea.input {
   opacity: 1;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 6.2 4.4 9 10.5 2.6'/%3E%3C/svg%3E");
 }
+.check input:indeterminate + .check__box {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.check input:indeterminate + .check__box::after {
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M2.5 6h7'/%3E%3C/svg%3E");
+}
 .check input:disabled + .check__box { border-color: var(--color-disabled); }
 .check input:disabled ~ .check__text { color: var(--color-text-disabled); }
 .check input:focus-visible + .check__box {
@@ -366,7 +374,7 @@ textarea.input {
   outline-offset: 2px;
 }
 
-// Переключатель (toggle)
+// Переключатель
 .toggle {
   display: inline-flex;
   align-items: center;
@@ -446,7 +454,7 @@ textarea.input {
   }
 }
 
-// Карточка пользователя (макет 386:7443)
+// Карточка пользователя
 .card {
   position: relative;
   display: flex;
@@ -505,14 +513,14 @@ textarea.input {
   }
 }
 
-// Уведомление (toast) — макет 390:12582
+// Тост
 .toast {
   position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 64px;
-  padding: 16px 20px;
+  min-height: 72px;
+  padding: 24px;
   background: var(--color-accent-hover);
   border-radius: var(--radius-md);
   font-family: var(--font-heading);
@@ -533,7 +541,7 @@ textarea.input {
   height: 18px;
 }
 
-// Уведомление (toast) — макет 390:12582 с кнопкой
+// Тост с кнопкой
 .toast--action { padding-bottom: 28px; }
 .toast__go {
   position: absolute;
@@ -629,13 +637,15 @@ textarea.input {
   &--3 { background: linear-gradient(140deg, #e5c8be, #be8878); }
 }
 
-// Панель уведомлений в шапке (макет 465:14875)
+// Панель уведомлений
 .header__popover.notifications {
-  width: 480px;
+  border: 1px solid var(--color-caption);
+  box-shadow: none;
+  width: 556px;
   max-width: calc(100vw - 32px);
   max-height: min(680px, calc(100vh - 120px));
   overflow-y: auto;
-  padding: 32px;
+  padding: 60px;
 }
 .notifications__section + .notifications__section { margin-top: 40px; }
 .notifications__head {
@@ -704,7 +714,6 @@ textarea.input {
     padding: 12px 24px;
   }
 }
-
 // Просмотренные — без кнопки, приглушены
 .notif--seen .notif__icon,
 .notif--seen .notif__title { color: var(--color-caption); }
@@ -860,7 +869,6 @@ textarea.input {
   outline: 2px solid var(--color-accent-pressed);
   outline-offset: 0;
 }
-
 // Шеврон
 .calendar__nav .icon {
   position: absolute;
@@ -905,6 +913,19 @@ textarea.input {
   min-height: 48px;
   padding: 12px 16px;
 }
+
+// Состояния для витрины UI-kit
+.btn--primary.is-hover { background: var(--color-accent-hover); }
+.btn--primary.is-pressed {
+  background: var(--color-accent-pressed);
+  color: var(--color-on-pressed);
+}
+.btn--secondary.is-hover {
+  box-shadow: inset 0 0 0 1px var(--color-accent-hover);
+  color: var(--color-caption);
+}
+.btn--secondary.is-pressed { box-shadow: inset 0 0 0 1px var(--color-accent-pressed); }
+.input-wrap.is-focus { border-color: var(--color-accent-pressed); }
 
 // Компактная модалка-подтверждение
 .modal--sm {

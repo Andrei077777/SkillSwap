@@ -88,6 +88,9 @@ p { margin: 0; }
   outline-offset: 2px;
 }
 
+// Скрытые элементы
+[hidden] { display: none !important; }
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -100,7 +103,7 @@ p { margin: 0; }
   border: 0;
 }
 
-// --- Контейнер и сетка: 1440-12-center-92/24 ---
+// --- Контейнер и сетка ---
 .container {
   width: 100%;
   max-width: var(--container-width);

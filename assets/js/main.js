@@ -9,7 +9,7 @@
 	const applyTheme = (theme) => {
 		document.documentElement.dataset.theme = theme;
 		$$("[data-theme-toggle] use").forEach((use) => {
-			use.setAttribute("href", `assets/svg/sprite.svg#i-${theme === "dark" ? "sun" : "moon"}`);
+			use.setAttribute("href", `/assets/svg/sprite.svg#i-${theme === "dark" ? "sun" : "moon"}`);
 		});
 	};
 
@@ -33,6 +33,92 @@
 		});
 	});
 
+	/* --- Раскрытие блоков --- */
+	const toggleControlled = (btn) => {
+		const target = document.getElementById(btn.getAttribute("aria-controls"));
+		if (!target) return;
+		const open = btn.getAttribute("aria-expanded") === "true";
+		btn.setAttribute("aria-expanded", String(!open));
+		target.hidden = open;
+	};
+
+	/* Состояние родительской категории */
+	const syncCategory = (row) => {
+		const parent = row.querySelector(".check input");
+		const btn = row.querySelector(".filters__expand[aria-controls]");
+		if (!parent || !btn) return;
+		const sub = document.getElementById(btn.getAttribute("aria-controls"));
+		if (!sub) return;
+
+		const boxes = $$("input", sub);
+		const checked = boxes.filter((b) => b.checked);
+		const open = !sub.hidden;
+
+		if (boxes.length && checked.length === boxes.length) {
+			parent.checked = true;
+			parent.indeterminate = false;
+		} else {
+			parent.checked = false;
+			parent.indeterminate = open || checked.length > 0;
+		}
+	};
+
+	$$(".filters__row").forEach((row) => {
+		const parent = row.querySelector(".check input");
+		const btn = row.querySelector(".filters__expand[aria-controls]");
+		if (!parent || !btn) return;
+		const sub = document.getElementById(btn.getAttribute("aria-controls"));
+		if (!sub) return;
+
+		parent.addEventListener("change", () => {
+			const on = parent.checked;
+			$$("input", sub).forEach((b) => {
+				b.checked = on;
+			});
+			parent.indeterminate = !on && !sub.hidden;
+		});
+
+		sub.addEventListener("change", () => syncCategory(row));
+		syncCategory(row);
+	});
+
+	$$(".filters__expand[aria-controls], .link-more[aria-controls]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			toggleControlled(btn);
+			const row = btn.closest(".filters__row");
+			if (row) syncCategory(row);
+			const label = btn.querySelector(".link-more__text");
+			if (!label) return;
+			const open = btn.getAttribute("aria-expanded") === "true";
+			label.dataset.closed = label.dataset.closed || label.textContent;
+			label.textContent = open ? "Свернуть" : label.dataset.closed;
+		});
+	});
+
+	$$("[data-expand-all]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const group = btn.closest(".filters__group");
+			const open = btn.getAttribute("aria-expanded") !== "true";
+			btn.setAttribute("aria-expanded", String(open));
+
+			$$(".filters__sub", group).forEach((sub) => {
+				sub.hidden = !open;
+			});
+			$$(".filters__expand", group).forEach((exp) => {
+				exp.setAttribute("aria-expanded", String(open));
+				exp.setAttribute("aria-label", open ? "Скрыть подкатегории" : "Показать подкатегории");
+			});
+
+			$$(".filters__row", group).forEach(syncCategory);
+
+			const label = btn.querySelector(".link-more__text");
+			if (label) {
+				label.dataset.closed = label.dataset.closed || label.textContent;
+				label.textContent = open ? "Свернуть" : label.dataset.closed;
+			}
+		});
+	});
+
 	/* --- Фильтры на мобильном --- */
 	$$("[data-filters-toggle]").forEach((btn) => {
 		const panel = document.getElementById(btn.getAttribute("aria-controls"));
@@ -42,6 +128,11 @@
 			btn.setAttribute("aria-expanded", String(!open));
 			panel.classList.toggle("is-collapsed", open);
 		});
+	});
+
+	/* --- Частично выбранные чекбоксы --- */
+	$$("input[data-indeterminate]").forEach((input) => {
+		input.indeterminate = true;
 	});
 
 	/* --- Селекты --- */
@@ -108,7 +199,7 @@
 
 	/* --- Попоуверы шапки --- */
 	const closeAllPopovers = (except) => {
-		$$(".header__popover").forEach((p) => {
+		$$(".header__popover, .header__mega").forEach((p) => {
 			if (p !== except) {
 				p.hidden = true;
 				const owner = document.querySelector(`[aria-controls="${p.id}"]`);
@@ -152,16 +243,24 @@
 		const emptyText = (section, text) => {
 			const list = section.querySelector(".notifications__list");
 			if (!list || list.children.length) return;
+			list.hidden = true;
+			if (section.querySelector(".notifications__empty")) return;
 			const p = document.createElement("p");
 			p.className = "notifications__empty";
 			p.textContent = text;
-			list.replaceWith(p);
+			list.after(p);
+		};
+		const showList = (section) => {
+			const list = section.querySelector(".notifications__list");
+			if (list) list.hidden = false;
+			section.querySelector(".notifications__empty")?.remove();
 		};
 
 		panel.querySelector("[data-notif-read-all]")?.addEventListener("click", () => {
 			const from = newSection?.querySelector(".notifications__list");
 			const to = seenSection?.querySelector(".notifications__list");
-			if (from && to) {
+			if (from && to && from.children.length) {
+				showList(seenSection);
 				[...from.children].forEach((item) => {
 					item.classList.add("notif--seen");
 					item.querySelector(".notif__go")?.remove();
@@ -184,13 +283,13 @@
 		btn.addEventListener("click", () => {
 			const active = btn.classList.toggle("is-active");
 			const use = btn.querySelector("use");
-			if (use) use.setAttribute("href", `assets/svg/sprite.svg#i-like${active ? "-fill" : ""}`);
+			if (use) use.setAttribute("href", `/assets/svg/sprite.svg#i-like${active ? "-fill" : ""}`);
 			btn.setAttribute("aria-label", active ? "Убрать из избранного" : "В избранное");
 		});
 	});
 
 	/* --- Тосты --- */
-	const SPRITE = "assets/svg/sprite.svg";
+	const SPRITE = "/assets/svg/sprite.svg";
 
 	const hideToast = (toast) => {
 		if (!toast || toast.classList.contains("is-leaving")) return;
@@ -286,7 +385,7 @@
 			const shown = input.type === "text";
 			input.type = shown ? "password" : "text";
 			const use = btn.querySelector("use");
-			if (use) use.setAttribute("href", `assets/svg/sprite.svg#i-eye${shown ? "" : "-slash"}`);
+			if (use) use.setAttribute("href", `/assets/svg/sprite.svg#i-eye${shown ? "" : "-slash"}`);
 			btn.setAttribute("aria-label", shown ? "Показать пароль" : "Скрыть пароль");
 		});
 	});
@@ -356,10 +455,10 @@
 				'<div class="calendar__head">' +
 				'<span class="calendar__nav"><select data-month aria-label="Месяц">' +
 				MONTHS.map((m, i) => `<option value="${i}"${i === month ? " selected" : ""}>${m}</option>`).join("") +
-				'</select><svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
+				'</select><svg class="icon" aria-hidden="true"><use href="/assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
 				'<span class="calendar__nav"><select data-year aria-label="Год">' +
 				years.map((y) => `<option value="${y}"${y === year ? " selected" : ""}>${y}</option>`).join("") +
-				'</select><svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
+				'</select><svg class="icon" aria-hidden="true"><use href="/assets/svg/sprite.svg#i-chevron-down"></use></svg></span>' +
 				"</div>" +
 				'<div class="calendar__grid">' +
 				DOW.map((d) => `<span class="calendar__dow">${d}</span>`).join("") +

@@ -6,13 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SkillSwap — обмен навыками</title>
 	<meta name="description" content="SkillSwap — площадка обмена знаниями и навыками между людьми.">
-	<link rel="icon" href="assets/favicon.ico" sizes="any">
-	<link rel="icon" type="image/png" href="assets/favicon.png">
-	<link rel="stylesheet" href="assets/css/fonts.css">
-	<link rel="stylesheet" href="assets/css/globals.css">
-	<link rel="stylesheet" href="assets/css/base.css">
-	<link rel="stylesheet" href="assets/css/components.css">
-	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="icon" href="/assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/assets/favicon.png">
+	<link rel="stylesheet" href="/assets/css/fonts.css">
+	<link rel="stylesheet" href="/assets/css/globals.css">
+	<link rel="stylesheet" href="/assets/css/base.css">
+	<link rel="stylesheet" href="/assets/css/components.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
 </head>
 
 <body>
@@ -21,19 +21,19 @@
 		<!-- Шапка -->
 		<header class="header">
 			<div class="container header__inner">
-				<a class="logo" href="home.html">
+				<a class="logo" href="/home.html">
 					<span class="logo__mark"><svg class="icon" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+							<use href="/assets/svg/sprite.svg#i-logo-mark"></use>
 						</svg></span>
 					SkillSwap
 				</a>
 
 				<nav class="header__nav">
 					<a href="#">О проекте</a>
-					<button class="header__nav-toggle" type="button" aria-expanded="false">
+					<button class="header__nav-toggle" type="button" data-popover-toggle aria-controls="skills-menu" aria-expanded="false">
 						Все навыки
 						<svg class="icon icon--sm" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+							<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
 						</svg>
 					</button>
 				</nav>
@@ -42,12 +42,12 @@
 					<label class="visually-hidden" for="search">Искать навык</label>
 					<div class="input-wrap search">
 						<span class="input-wrap__icon-left"><svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-search"></use>
+								<use href="/assets/svg/sprite.svg#i-search"></use>
 							</svg></span>
 						<input class="input" id="search" type="search" placeholder="Искать навык">
 						<button class="input-wrap__action" type="button" data-search-clear aria-label="Очистить" hidden>
 							<svg class="icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-cross"></use>
+								<use href="/assets/svg/sprite.svg#i-cross"></use>
 							</svg>
 						</button>
 					</div>
@@ -56,17 +56,131 @@
 				<div class="header__actions">
 					<button class="btn-icon" type="button" data-theme-toggle aria-label="Тёмная тема">
 						<svg class="icon" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-moon"></use>
+							<use href="/assets/svg/sprite.svg#i-moon"></use>
 						</svg>
 					</button>
 					<div class="header__buttons">
-						<a class="btn btn--secondary" href="login.html">Войти</a>
-						<a class="btn btn--primary" href="register-2.html" aria-label="Зарегистрироваться"><svg class="icon btn__icon" aria-hidden="true">
-								<use href="assets/svg/sprite.svg#i-user-circle"></use>
+						<a class="btn btn--secondary" href="/login.html">Войти</a>
+						<a class="btn btn--primary" href="/register-2.html" aria-label="Зарегистрироваться"><svg class="icon btn__icon" aria-hidden="true">
+								<use href="/assets/svg/sprite.svg#i-user-circle"></use>
 							</svg><span class="btn__label">Зарегистрироваться</span></a>
 					</div>
 				</div>
 
+				<div class="header__mega" id="skills-menu" hidden>
+					<div class="mega__grid">
+						<div class="mega__col">
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--business"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-briefcase"></use>
+										</svg></span>
+									Бизнес и карьера
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Управление командой</a></li>
+									<li><a href="/catalog-filtered.html">Маркетинг и реклама</a></li>
+									<li><a href="/catalog-filtered.html">Продажи и переговоры</a></li>
+									<li><a href="/catalog-filtered.html">Личный бренд</a></li>
+									<li><a href="/catalog-filtered.html">Резюме и собеседование</a></li>
+									<li><a href="/catalog-filtered.html">Тайм-менеджмент</a></li>
+									<li><a href="/catalog-filtered.html">Проектное управление</a></li>
+									<li><a href="/catalog-filtered.html">Предпринимательство</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--languages"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-global"></use>
+										</svg></span>
+									Иностранные языки
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Английский</a></li>
+									<li><a href="/catalog-filtered.html">Французский</a></li>
+									<li><a href="/catalog-filtered.html">Испанский</a></li>
+									<li><a href="/catalog-filtered.html">Немецкий</a></li>
+									<li><a href="/catalog-filtered.html">Китайский</a></li>
+									<li><a href="/catalog-filtered.html">Японский</a></li>
+									<li><a href="/catalog-filtered.html">Подготовка к экзаменам (IELTS, TOEFL)</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--home"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-home"></use>
+										</svg></span>
+									Дом и уют
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Уборка и организация</a></li>
+									<li><a href="/catalog-filtered.html">Домашние финансы</a></li>
+									<li><a href="/catalog-filtered.html">Приготовление еды</a></li>
+									<li><a href="/catalog-filtered.html">Домашние растения</a></li>
+									<li><a href="/catalog-filtered.html">Ремонт</a></li>
+									<li><a href="/catalog-filtered.html">Хранение вещей</a></li>
+								</ul>
+							</section>
+						</div>
+						<div class="mega__col">
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--creative"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-palette"></use>
+										</svg></span>
+									Творчество и искусство
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Рисование и иллюстрация</a></li>
+									<li><a href="/catalog-filtered.html">Фотография</a></li>
+									<li><a href="/catalog-filtered.html">Видеомонтаж</a></li>
+									<li><a href="/catalog-filtered.html">Музыка и звук</a></li>
+									<li><a href="/catalog-filtered.html">Актёрское мастерство</a></li>
+									<li><a href="/catalog-filtered.html">Креативное письмо</a></li>
+									<li><a href="/catalog-filtered.html">Арт-терапия</a></li>
+									<li><a href="/catalog-filtered.html">Декор и DIY</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--education"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-book"></use>
+										</svg></span>
+									Образование и развитие
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Личностное развитие</a></li>
+									<li><a href="/catalog-filtered.html">Навыки обучения</a></li>
+									<li><a href="/catalog-filtered.html">Когнитивные техники</a></li>
+									<li><a href="/catalog-filtered.html">Скорочтение</a></li>
+									<li><a href="/catalog-filtered.html">Навыки преподавания</a></li>
+									<li><a href="/catalog-filtered.html">Коучинг</a></li>
+								</ul>
+							</section>
+
+							<section class="mega__group">
+								<h2 class="mega__title">
+									<span class="mega__icon mega__icon--health"><svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-lifestyle"></use>
+										</svg></span>
+									Здоровье и лайфстайл
+								</h2>
+								<ul class="mega__list">
+									<li><a href="/catalog-filtered.html">Йога и медитация</a></li>
+									<li><a href="/catalog-filtered.html">Питание и ЗОЖ</a></li>
+									<li><a href="/catalog-filtered.html">Ментальное здоровье</a></li>
+									<li><a href="/catalog-filtered.html">Осознанность</a></li>
+									<li><a href="/catalog-filtered.html">Физические тренировки</a></li>
+									<li><a href="/catalog-filtered.html">Сон и восстановление</a></li>
+									<li><a href="/catalog-filtered.html">Баланс жизни и работы</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
 			</div>
 		</header>
 
@@ -78,7 +192,7 @@
 					<button class="btn btn--secondary filters__mobile-toggle" type="button" data-filters-toggle aria-expanded="false" aria-controls="filters">
 						Фильтры
 						<svg class="icon icon--sm" aria-hidden="true">
-							<use href="assets/svg/sprite.svg#i-chevron-down"></use>
+							<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
 						</svg>
 					</button>
 
@@ -96,16 +210,114 @@
 						<div class="filters__group">
 							<h3 class="filters__title">Навыки</h3>
 							<div class="filters__list">
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Бизнес и карьера</span></label>
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Творчество и искусство</span></label>
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Иностранные языки</span></label>
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Образование и развитие</span></label>
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Здоровье и лайфстайл</span></label>
-								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Дом и уют</span></label>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Бизнес и карьера</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-business" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-business" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Управление командой</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Маркетинг и реклама</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Продажи и переговоры</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Личный бренд</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Резюме и собеседование</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Тайм-менеджмент</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Проектное управление</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Предпринимательство</span></label>
+								</div>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Творчество и искусство</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-creative" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-creative" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Рисование и иллюстрация</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Фотография</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Видеомонтаж</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Музыка и звук</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Актёрское мастерство</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Креативное письмо</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Арт-терапия</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Декор и DIY</span></label>
+								</div>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Иностранные языки</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-languages" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-languages" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Английский</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Французский</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Испанский</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Немецкий</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Китайский</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Японский</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Подготовка к экзаменам (IELTS, TOEFL)</span></label>
+								</div>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Образование и развитие</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-education" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-education" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Личностное развитие</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Навыки обучения</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Когнитивные техники</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Скорочтение</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Навыки преподавания</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Коучинг</span></label>
+								</div>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Здоровье и лайфстайл</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-health" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-health" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Йога и медитация</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Питание и ЗОЖ</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Ментальное здоровье</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Осознанность</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Физические тренировки</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Сон и восстановление</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Баланс жизни и работы</span></label>
+								</div>
+								<div class="filters__row">
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Дом и уют</span></label>
+									<button class="filters__expand" type="button" aria-expanded="false" aria-controls="sub-home" aria-label="Показать подкатегории">
+										<svg class="icon" aria-hidden="true">
+											<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="filters__sub" id="sub-home" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Уборка и организация</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Домашние финансы</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Приготовление еды</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Домашние растения</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Ремонт</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Хранение вещей</span></label>
+								</div>
 							</div>
-							<button class="link-more" type="button">
-								Все категории
-								<svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg>
+							<button class="link-more" type="button" data-expand-all aria-expanded="false">
+								<span class="link-more__text">Все категории</span>
+								<svg class="icon" aria-hidden="true">
+									<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+								</svg>
 							</button>
 						</div>
 
@@ -126,10 +338,29 @@
 								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Новосибирск</span></label>
 								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Екатеринбург</span></label>
 								<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Казань</span></label>
+								<div class="filters__more" id="more-cities" hidden>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Нижний Новгород</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Челябинск</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Самара</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Омск</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Ростов-на-Дону</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Уфа</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Красноярск</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Пермь</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Воронеж</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Волгоград</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Краснодар</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Владивосток</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Иркутск</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Ярославль</span></label>
+									<label class="check"><input type="checkbox"><span class="check__box"></span><span class="check__text">Архангельск</span></label>
+								</div>
 							</div>
-							<button class="link-more" type="button">
-								Все города
-								<svg class="icon" aria-hidden="true"><use href="assets/svg/sprite.svg#i-chevron-down"></use></svg>
+							<button class="link-more" type="button" aria-expanded="false" aria-controls="more-cities">
+								<span class="link-more__text">Все города</span>
+								<svg class="icon" aria-hidden="true">
+									<use href="/assets/svg/sprite.svg#i-chevron-down"></use>
+								</svg>
 							</button>
 						</div>
 					</aside>
@@ -139,10 +370,10 @@
 						<section class="section">
 							<div class="section__head">
 								<h1>Популярное</h1>
-								<a class="btn btn--surface" href="catalog-filtered.html">
+								<a class="btn btn--surface" href="/catalog-filtered.html">
 									Смотреть все
 									<svg class="icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-chevron-right"></use>
+										<use href="/assets/svg/sprite.svg#i-chevron-right"></use>
 									</svg>
 								</a>
 							</div>
@@ -150,7 +381,7 @@
 								<!-- карточка -->
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-1"></span>
@@ -176,7 +407,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-2"></span>
@@ -202,7 +433,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-3"></span>
@@ -231,17 +462,17 @@
 						<section class="section">
 							<div class="section__head">
 								<h2>Новое</h2>
-								<a class="btn btn--surface" href="catalog-filtered.html">
+								<a class="btn btn--surface" href="/catalog-filtered.html">
 									Смотреть все
 									<svg class="icon" aria-hidden="true">
-										<use href="assets/svg/sprite.svg#i-chevron-right"></use>
+										<use href="/assets/svg/sprite.svg#i-chevron-right"></use>
 									</svg>
 								</a>
 							</div>
 							<div class="cards-grid">
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-4"></span>
@@ -267,7 +498,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-5"></span>
@@ -293,7 +524,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-6"></span>
@@ -326,7 +557,7 @@
 							<div class="cards-grid">
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-7"></span>
@@ -352,7 +583,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-8"></span>
@@ -378,7 +609,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-9"></span>
@@ -404,7 +635,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-2"></span>
@@ -430,7 +661,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-1"></span>
@@ -456,7 +687,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-3"></span>
@@ -482,7 +713,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-4"></span>
@@ -508,7 +739,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-5"></span>
@@ -534,7 +765,7 @@
 
 								<article class="card">
 									<button class="card__like" type="button" aria-label="В избранное"><svg class="icon" aria-hidden="true">
-											<use href="assets/svg/sprite.svg#i-like"></use>
+											<use href="/assets/svg/sprite.svg#i-like"></use>
 										</svg></button>
 									<div class="card__head">
 										<span class="avatar avatar--ph avatar--ph-6"></span>
@@ -569,16 +800,16 @@
 			<div class="container">
 				<div class="footer__inner">
 					<div class="footer__col">
-						<a class="logo" href="home.html">
+						<a class="logo" href="/home.html">
 							<span class="logo__mark"><svg class="icon" aria-hidden="true">
-									<use href="assets/svg/sprite.svg#i-logo-mark"></use>
+									<use href="/assets/svg/sprite.svg#i-logo-mark"></use>
 								</svg></span>
 							SkillSwap
 						</a>
 					</div>
 					<nav class="footer__col">
 						<a href="#">О проекте</a>
-						<a href="catalog-filtered.html">Все навыки</a>
+						<a href="/catalog-filtered.html">Все навыки</a>
 					</nav>
 					<nav class="footer__col">
 						<a href="#">Контакты</a>
@@ -597,19 +828,19 @@
 		<div class="modal-backdrop" id="login-modal" hidden>
 			<div class="modal modal--sm" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
 				<span class="modal__icon"><svg class="icon" aria-hidden="true">
-						<use href="assets/svg/sprite.svg#i-user-circle"></use>
+						<use href="/assets/svg/sprite.svg#i-user-circle"></use>
 					</svg></span>
 				<h2 class="modal__title" id="login-modal-title">Пожалуйста, войдите в аккаунт</h2>
 				<p class="modal__subtitle">Присоединяйтесь к SkillSwap и обменивайтесь знаниями и навыками с другими людьми</p>
 				<div class="modal__actions">
 					<button class="btn btn--secondary" type="button" data-modal-close>Отмена</button>
-					<a class="btn btn--primary" href="login.html">Войти</a>
+					<a class="btn btn--primary" href="/login.html">Войти</a>
 				</div>
 			</div>
 		</div>
 
 	</div>
-	<script src="assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Карта страниц — SkillSwap</title>
+	<link rel="icon" href="/assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/assets/favicon.png">
+	<link rel="stylesheet" href="/assets/css/fonts.css">
+	<link rel="stylesheet" href="/assets/css/globals.css">
+	<link rel="stylesheet" href="/assets/css/base.css">
+	<link rel="stylesheet" href="/assets/css/components.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+	<style>
+		.map__intro {
+			margin-bottom: 40px;
+			text-align: center;
+		}
+
+		.map__group {
+			margin-bottom: 40px;
+		}
+
+		.map__group-title {
+			font-family: var(--font-heading);
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 28px;
+			letter-spacing: -0.26px;
+			margin-bottom: 16px;
+		}
+
+		.map__grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 24px;
+		}
+
+		.map__card {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			padding: 20px;
+			background: var(--color-surface);
+			border-radius: var(--radius-lg);
+			color: var(--color-text);
+			transition: transform .15s, box-shadow .15s;
+		}
+
+		.map__card:hover {
+			text-decoration: none;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 24px rgba(37, 48, 23, .10);
+		}
+
+		.map__card-head {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.map__icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 44px;
+			height: 44px;
+			flex: none;
+			border-radius: 50%;
+			background: var(--color-accent-hover);
+			color: var(--color-accent-pressed);
+		}
+
+		.map__name {
+			font-family: var(--font-heading);
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 24px;
+			letter-spacing: -0.22px;
+		}
+
+		.map__file {
+			font-size: 12px;
+			line-height: 16px;
+			letter-spacing: 0.24px;
+			color: var(--color-caption);
+			font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="page">
+
+		<main class="page__main">
+			<div class="container">
+
+				<div class="map__intro">
+					<h1>SkillSwap</h1>
+				</div>
+
+				<!-- Каталог -->
+				<section class="map__group">
+					<h2 class="map__group-title">Каталог</h2>
+					<div class="map__grid">
+
+						<a class="map__card" href="/home.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-home"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Главная</p>
+									<p class="map__file">home.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/catalog.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-user-circle"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Каталог, вход выполнен</p>
+									<p class="map__file">catalog.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/catalog-filtered.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-filter-square"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Фильтры применены</p>
+									<p class="map__file">catalog-filtered.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/skill.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-idea"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Страница навыка</p>
+									<p class="map__file">skill.html</p>
+								</div>
+							</div>
+						</a>
+
+					</div>
+				</section>
+
+				<!-- Вход и регистрация -->
+				<section class="map__group">
+					<h2 class="map__group-title">Вход и регистрация</h2>
+					<div class="map__grid">
+
+						<a class="map__card" href="/login.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-logout"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Вход</p>
+									<p class="map__file">login.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/login-error.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-cross"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Вход — ошибка</p>
+									<p class="map__file">login-error.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/register-2.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-user"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Регистрация, шаг 2</p>
+									<p class="map__file">register-2.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/register-3.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-gallery-add"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Регистрация, шаг 3</p>
+									<p class="map__file">register-3.html</p>
+								</div>
+							</div>
+						</a>
+
+					</div>
+				</section>
+
+				<!-- Профиль -->
+				<section class="map__group">
+					<h2 class="map__group-title">Профиль и служебные</h2>
+					<div class="map__grid">
+
+						<a class="map__card" href="/profile.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-edit"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Личные данные</p>
+									<p class="map__file">profile.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/404.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-search"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">404</p>
+									<p class="map__file">404.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/500.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-clock"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">500</p>
+									<p class="map__file">500.html</p>
+								</div>
+							</div>
+						</a>
+
+						<a class="map__card" href="/toasts.html" target="_blank" rel="noopener">
+							<div class="map__card-head">
+								<span class="map__icon"><svg class="icon" aria-hidden="true">
+										<use href="/assets/svg/sprite.svg#i-notification"></use>
+									</svg></span>
+								<div>
+									<p class="map__name">Уведомления</p>
+									<p class="map__file">toasts.html</p>
+								</div>
+							</div>
+						</a>
+
+					</div>
+				</section>
+
+			</div>
+		</main>
+
+	</div>
+	<script src="/assets/js/main.js"></script>
+</body>
+
+</html>
